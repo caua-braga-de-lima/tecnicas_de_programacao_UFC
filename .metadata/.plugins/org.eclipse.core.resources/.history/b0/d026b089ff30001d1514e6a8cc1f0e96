@@ -1,0 +1,39 @@
+package exercicios;
+
+public class ex08 
+{
+	public static void priorizar(int vet1[], int vet2[])
+	{
+		int aux;
+		for(int i = 0; i < vet1.length; i++)
+		{
+			if()
+		}
+		
+		System.out.println("VETOR 1: ");
+		for(int j = 0; j < vet1.length; j++)
+		{
+			System.out.print(vet1[j] + " ");
+		}
+		
+		System.out.println(" ");
+		
+		System.out.println("VETOR 2: ");
+		for(int k = 0; k < vet2.length; k++)
+		{
+			System.out.print(vet2[k] + " ");
+		}
+	}
+	public static void main(String[] args) 
+	{
+		/*8) Priorização: Sua função deverá receber um vetor e pegar os elementos do
+		vetor e colocar em um segundo vetor. Os novos elementos devem ser
+		colocados no segundo vetor apenas quando eles contribuam para a média
+		dos segundo vetor aumentar.*/
+		
+		
+		
+		
+	}
+
+}

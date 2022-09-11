@@ -1,0 +1,13 @@
+package exercicios;
+
+public class ex14 
+{
+	public static void main(String[] args)
+	{
+		/*14) Contagem de caracteres: Sua função deverá contar os caracteres que
+		aparecem no vetor. Os caracteres podem ser qualquer letra ou número do
+		alfabeto.*/
+
+	}
+
+}

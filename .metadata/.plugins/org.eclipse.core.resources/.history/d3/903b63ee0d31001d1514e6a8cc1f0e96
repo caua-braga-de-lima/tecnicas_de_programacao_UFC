@@ -1,0 +1,96 @@
+package exercicios;
+
+public class ex13 
+{
+	public static void descompactar(String [] vet)
+	{
+		for(int i = 0; i < vet.length; i++)
+		{
+			switch(vet[i])
+			{
+			case "%":
+				vet[i] = "a";
+				break;
+			case "*":
+				vet[i] = "b";
+				break;
+			case "c":
+				vet[i] = "(";
+				break;
+			case "d":
+				vet[i] = "-";
+				break;
+			case "e":
+				vet[i] = "+";
+				break;
+			case "f":
+				vet[i] = "@";
+				break;
+			case "g":
+				vet[i] = "#";
+				break;
+			case "h":
+				vet[i] = "1";
+				break;
+			case "i":
+				vet[i] = "2";
+				break;
+			case "j":
+				vet[i] = "3";
+				break;
+			case "l":
+				vet[i] = "4";
+				break;
+			case "m":
+				vet[i] = "5";
+				break;
+			case "n":
+				vet[i] = "6";
+				break;
+			case "o":
+				vet[i] = "7";
+				break;
+			case "p":
+				vet[i] = "8";
+				break;
+			case "q":
+				vet[i] = "9";
+				break;
+			case "r":
+				vet[i] = "{";
+				break;
+			case "s":
+				vet[i] = "}";
+				break;
+			case "t":
+				vet[i] = "!";
+				break;
+			case "u":
+				vet[i] = "&";
+				break;
+			case "v":
+				vet[i] = "$";
+				break;
+			case "x":
+				vet[i] = "?";
+				break;
+			case "z":
+				vet[i] = ":";
+				break;
+			default:
+				vet[i] = ";";
+			}
+	}
+	public static void main(String[] args) 
+	{
+		/*13) Descritografia. Sua função deverá descriptografar os caracteres do vetor
+		de strings segundo a lista apresentada na questão anterior.*/
+		
+		// vetor exemplo:
+		String vet[] = {";", "{", "7", "#", "{", "%", "5", "%", "{", "+", "1", "4", "+", "#", "%", "4"};
+		
+		
+
+	}
+
+}
