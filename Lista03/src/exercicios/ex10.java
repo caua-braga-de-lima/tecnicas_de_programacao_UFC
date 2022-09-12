@@ -38,7 +38,23 @@ public class ex10
 		
 		for(int i = 0; i < tamanho; i++)
 		{
-			System.out.print(novo_vet[i] + " ");
+			if(i == 0)
+			{
+				System.out.print(novo_vet[i] + 1);
+			}
+			else
+			{
+				System.out.print(novo_vet[i]);
+			}
+			
+			if(i % 2 == 0)
+			{
+				System.out.print("0 ");
+			}
+			else
+			{
+				System.out.print("1 ");
+			}
 		}
 	}
 	public static void main(String[] args) 
