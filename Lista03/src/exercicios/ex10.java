@@ -4,20 +4,41 @@ public class ex10
 {
 	public static void compactar(int vet[])
 	{
-		int cont = 0;
-		for(int i = 0; i < vet.length; i++)
+		int tamanho = 0;
+		for(int i = 0; i < (vet.length - 1); i++)
 		{
-			if(vet[i] == 1)
+			if(vet[i] != vet[i+1])
 			{
-				cont++;
+				tamanho++;
 			}
 		}
 		
-		int novo_vet[] = new int[cont];
+		int novo_vet[] = new int[tamanho];
+		int elemento = 0;
 		
-		for(int i = 0; i < cont; i++)
+		for(int i = 0, indice = 0; i < (vet.length - 1); i++)
 		{
-			
+			if(vet[i] == vet[i + 1])
+			{
+				elemento++;
+			}
+			else
+			{
+				novo_vet[indice] = elemento;
+				elemento = 1;
+				indice++;
+			}
+			if(i == vet.length - 2)
+			{
+				novo_vet[indice - 1] = elemento;
+			}
+		}
+		
+		System.out.println("O vetor compactado é: ");
+		
+		for(int i = 0; i < tamanho; i++)
+		{
+			System.out.print(novo_vet[i] + " ");
 		}
 	}
 	public static void main(String[] args) 
@@ -30,6 +51,7 @@ public class ex10
 	   // vetor exemplo:
 		int vet[] = {0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1,1};
 		
+		compactar(vet);
 
 	}
 
