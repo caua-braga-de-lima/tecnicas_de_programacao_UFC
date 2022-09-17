@@ -14,6 +14,7 @@ public class ex17
 		
 		int posicao = 0;
 		int aux = 0;
+		
 		for(int i = 0; i < vet.length; i++)
 		{
 		
