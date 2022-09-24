@@ -1,0 +1,757 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "java",
+           "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch comando_scanner",
+            "request": "launch",
+            "mainClass": "aula03/aula03.comando_scanner",
+            "projectName": "Aula03"
+        },
+        {
+            "type": "java",
+            "name": "Launch exemplo",
+            "request": "launch",
+            "mainClass": "aula05/aula05.exemplo",
+            "projectName": "Aula05"
+        },
+        {
+            "type": "java",
+            "name": "Launch nova_aula05",
+            "request": "launch",
+            "mainClass": "aula05/aula05.nova_aula05",
+            "projectName": "Aula05"
+        },
+        {
+            "type": "java",
+            "name": "Launch funções_recursivas",
+            "request": "launch",
+            "mainClass": "Aula06/aula06.funções_recursivas",
+            "projectName": "Aula06"
+        },
+        {
+            "type": "java",
+            "name": "Launch test",
+            "request": "launch",
+            "mainClass": "Aula06/aula06.test",
+            "projectName": "Aula06"
+        },
+        {
+            "type": "java",
+            "name": "Launch funçao_random",
+            "request": "launch",
+            "mainClass": "Aula07/aula07.funçao_random",
+            "projectName": "Aula07"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "Aula09"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex01",
+            "request": "launch",
+            "mainClass": "lista01/exercicios.Ex01",
+            "projectName": "Lista01"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex02",
+            "request": "launch",
+            "mainClass": "lista01/exercicios.Ex02",
+            "projectName": "Lista01"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex03",
+            "request": "launch",
+            "mainClass": "lista01/exercicios.Ex03",
+            "projectName": "Lista01"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex04",
+            "request": "launch",
+            "mainClass": "lista01/exercicios.Ex04",
+            "projectName": "Lista01"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex05",
+            "request": "launch",
+            "mainClass": "lista01/exercicios.Ex05",
+            "projectName": "Lista01"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex06",
+            "request": "launch",
+            "mainClass": "lista01/exercicios.Ex06",
+            "projectName": "Lista01"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex07",
+            "request": "launch",
+            "mainClass": "lista01/exercicios.Ex07",
+            "projectName": "Lista01"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex08",
+            "request": "launch",
+            "mainClass": "lista01/exercicios.Ex08",
+            "projectName": "Lista01"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex09",
+            "request": "launch",
+            "mainClass": "lista01/exercicios.Ex09",
+            "projectName": "Lista01"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex10",
+            "request": "launch",
+            "mainClass": "lista01/exercicios.Ex10",
+            "projectName": "Lista01"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex11",
+            "request": "launch",
+            "mainClass": "lista01/exercicios.Ex11",
+            "projectName": "Lista01"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex12",
+            "request": "launch",
+            "mainClass": "lista01/exercicios.Ex12",
+            "projectName": "Lista01"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex13",
+            "request": "launch",
+            "mainClass": "lista01/exercicios.Ex13",
+            "projectName": "Lista01"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex01",
+            "request": "launch",
+            "mainClass": "lista02/exercicios.ex01",
+            "projectName": "Lista02"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex02",
+            "request": "launch",
+            "mainClass": "lista02/exercicios.ex02",
+            "projectName": "Lista02"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex03",
+            "request": "launch",
+            "mainClass": "lista02/exercicios.ex03",
+            "projectName": "Lista02"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex04",
+            "request": "launch",
+            "mainClass": "lista02/exercicios.ex04",
+            "projectName": "Lista02"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex05",
+            "request": "launch",
+            "mainClass": "lista02/exercicios.ex05",
+            "projectName": "Lista02"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex06",
+            "request": "launch",
+            "mainClass": "lista02/exercicios.ex06",
+            "projectName": "Lista02"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex07",
+            "request": "launch",
+            "mainClass": "lista02/exercicios.ex07",
+            "projectName": "Lista02"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex08",
+            "request": "launch",
+            "mainClass": "lista02/exercicios.ex08",
+            "projectName": "Lista02"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex09",
+            "request": "launch",
+            "mainClass": "lista02/exercicios.ex09",
+            "projectName": "Lista02"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex10",
+            "request": "launch",
+            "mainClass": "lista02/exercicios.ex10",
+            "projectName": "Lista02"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex11",
+            "request": "launch",
+            "mainClass": "lista02/exercicios.ex11",
+            "projectName": "Lista02"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex12",
+            "request": "launch",
+            "mainClass": "lista02/exercicios.ex12",
+            "projectName": "Lista02"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex01(1)",
+            "request": "launch",
+            "mainClass": "lista03/exercicios.ex01",
+            "projectName": "Lista03"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex02(1)",
+            "request": "launch",
+            "mainClass": "lista03/exercicios.ex02",
+            "projectName": "Lista03"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex03(1)",
+            "request": "launch",
+            "mainClass": "lista03/exercicios.ex03",
+            "projectName": "Lista03"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex04(1)",
+            "request": "launch",
+            "mainClass": "lista03/exercicios.ex04",
+            "projectName": "Lista03"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex05(1)",
+            "request": "launch",
+            "mainClass": "lista03/exercicios.ex05",
+            "projectName": "Lista03"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex06(1)",
+            "request": "launch",
+            "mainClass": "lista03/exercicios.ex06",
+            "projectName": "Lista03"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex07(1)",
+            "request": "launch",
+            "mainClass": "lista03/exercicios.ex07",
+            "projectName": "Lista03"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex08(1)",
+            "request": "launch",
+            "mainClass": "lista03/exercicios.ex08",
+            "projectName": "Lista03"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex10(1)",
+            "request": "launch",
+            "mainClass": "lista03/exercicios.ex10",
+            "projectName": "Lista03"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex12(1)",
+            "request": "launch",
+            "mainClass": "lista03/exercicios.ex12",
+            "projectName": "Lista03"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex13",
+            "request": "launch",
+            "mainClass": "lista03/exercicios.ex13",
+            "projectName": "Lista03"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex14",
+            "request": "launch",
+            "mainClass": "lista03/exercicios.ex14",
+            "projectName": "Lista03"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex15",
+            "request": "launch",
+            "mainClass": "lista03/exercicios.ex15",
+            "projectName": "Lista03"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex16",
+            "request": "launch",
+            "mainClass": "lista03/exercicios.ex16",
+            "projectName": "Lista03"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex17",
+            "request": "launch",
+            "mainClass": "lista03/exercicios.ex17",
+            "projectName": "Lista03"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex18",
+            "request": "launch",
+            "mainClass": "lista03/exercicios.ex18",
+            "projectName": "Lista03"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex19",
+            "request": "launch",
+            "mainClass": "lista03/exercicios.ex19",
+            "projectName": "Lista03"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex20",
+            "request": "launch",
+            "mainClass": "lista03/exercicios.ex20",
+            "projectName": "Lista03"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex01(1)",
+            "request": "launch",
+            "mainClass": "Lista04/exercicios.Ex01",
+            "projectName": "Lista04"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex02(1)",
+            "request": "launch",
+            "mainClass": "Lista04/exercicios.Ex02",
+            "projectName": "Lista04"
+        },
+        {
+            "type": "java",
+            "name": "Launch MainTeste",
+            "request": "launch",
+            "mainClass": "aula25_08_22.MainTeste",
+            "projectName": "aula25_08_22"
+        },
+        {
+            "type": "java",
+            "name": "Launch comando_scanner(1)",
+            "request": "launch",
+            "mainClass": "Aula03.src.aula03.comando_scanner",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch exemplo(1)",
+            "request": "launch",
+            "mainClass": "Aula05.src.aula05.exemplo",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch nova_aula05(1)",
+            "request": "launch",
+            "mainClass": "Aula05.src.aula05.nova_aula05",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch funções_recursivas(1)",
+            "request": "launch",
+            "mainClass": "Aula06.src.aula06.funções_recursivas",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch test(1)",
+            "request": "launch",
+            "mainClass": "Aula06.src.aula06.test",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch funçao_random(1)",
+            "request": "launch",
+            "mainClass": "Aula07.src.aula07.funçao_random",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch MainTeste(1)",
+            "request": "launch",
+            "mainClass": "Aula08.src.aula25_08_22.MainTeste",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main(1)",
+            "request": "launch",
+            "mainClass": "Aula09.src.Main",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex01(2)",
+            "request": "launch",
+            "mainClass": "Lista01.src.exercicios.Ex01",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex02(2)",
+            "request": "launch",
+            "mainClass": "Lista01.src.exercicios.Ex02",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex03(1)",
+            "request": "launch",
+            "mainClass": "Lista01.src.exercicios.Ex03",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex04(1)",
+            "request": "launch",
+            "mainClass": "Lista01.src.exercicios.Ex04",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex05(1)",
+            "request": "launch",
+            "mainClass": "Lista01.src.exercicios.Ex05",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex06(1)",
+            "request": "launch",
+            "mainClass": "Lista01.src.exercicios.Ex06",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex07(1)",
+            "request": "launch",
+            "mainClass": "Lista01.src.exercicios.Ex07",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex08(1)",
+            "request": "launch",
+            "mainClass": "Lista01.src.exercicios.Ex08",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex09(1)",
+            "request": "launch",
+            "mainClass": "Lista01.src.exercicios.Ex09",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex10(1)",
+            "request": "launch",
+            "mainClass": "Lista01.src.exercicios.Ex10",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex11(1)",
+            "request": "launch",
+            "mainClass": "Lista01.src.exercicios.Ex11",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex12(1)",
+            "request": "launch",
+            "mainClass": "Lista01.src.exercicios.Ex12",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex13(1)",
+            "request": "launch",
+            "mainClass": "Lista01.src.exercicios.Ex13",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex01(2)",
+            "request": "launch",
+            "mainClass": "Lista02.src.exercicios.ex01",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex02(2)",
+            "request": "launch",
+            "mainClass": "Lista02.src.exercicios.ex02",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex03(2)",
+            "request": "launch",
+            "mainClass": "Lista02.src.exercicios.ex03",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex04(2)",
+            "request": "launch",
+            "mainClass": "Lista02.src.exercicios.ex04",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex05(2)",
+            "request": "launch",
+            "mainClass": "Lista02.src.exercicios.ex05",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex06(2)",
+            "request": "launch",
+            "mainClass": "Lista02.src.exercicios.ex06",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex07(2)",
+            "request": "launch",
+            "mainClass": "Lista02.src.exercicios.ex07",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex08(2)",
+            "request": "launch",
+            "mainClass": "Lista02.src.exercicios.ex08",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex09(1)",
+            "request": "launch",
+            "mainClass": "Lista02.src.exercicios.ex09",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex10(2)",
+            "request": "launch",
+            "mainClass": "Lista02.src.exercicios.ex10",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex11(1)",
+            "request": "launch",
+            "mainClass": "Lista02.src.exercicios.ex11",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex12(2)",
+            "request": "launch",
+            "mainClass": "Lista02.src.exercicios.ex12",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex01(3)",
+            "request": "launch",
+            "mainClass": "Lista03.src.exercicios.ex01",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex02(3)",
+            "request": "launch",
+            "mainClass": "Lista03.src.exercicios.ex02",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex03(3)",
+            "request": "launch",
+            "mainClass": "Lista03.src.exercicios.ex03",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex04(3)",
+            "request": "launch",
+            "mainClass": "Lista03.src.exercicios.ex04",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex05(3)",
+            "request": "launch",
+            "mainClass": "Lista03.src.exercicios.ex05",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex06(3)",
+            "request": "launch",
+            "mainClass": "Lista03.src.exercicios.ex06",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex07(3)",
+            "request": "launch",
+            "mainClass": "Lista03.src.exercicios.ex07",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex08(3)",
+            "request": "launch",
+            "mainClass": "Lista03.src.exercicios.ex08",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex10(3)",
+            "request": "launch",
+            "mainClass": "Lista03.src.exercicios.ex10",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex12(3)",
+            "request": "launch",
+            "mainClass": "Lista03.src.exercicios.ex12",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex13(1)",
+            "request": "launch",
+            "mainClass": "Lista03.src.exercicios.ex13",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex14(1)",
+            "request": "launch",
+            "mainClass": "Lista03.src.exercicios.ex14",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex15(1)",
+            "request": "launch",
+            "mainClass": "Lista03.src.exercicios.ex15",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex16(1)",
+            "request": "launch",
+            "mainClass": "Lista03.src.exercicios.ex16",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex17(1)",
+            "request": "launch",
+            "mainClass": "Lista03.src.exercicios.ex17",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex18(1)",
+            "request": "launch",
+            "mainClass": "Lista03.src.exercicios.ex18",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex19(1)",
+            "request": "launch",
+            "mainClass": "Lista03.src.exercicios.ex19",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch ex20(1)",
+            "request": "launch",
+            "mainClass": "Lista03.src.exercicios.ex20",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex01(3)",
+            "request": "launch",
+            "mainClass": "Lista04.src.exercicios.Ex01",
+            "projectName": "scripts java_65fc71ce"
+        },
+        {
+            "type": "java",
+            "name": "Launch Ex02(3)",
+            "request": "launch",
+            "mainClass": "Lista04.src.exercicios.Ex02",
+            "projectName": "scripts java_65fc71ce"
+        }
+    ]
+}
