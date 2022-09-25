@@ -4,7 +4,29 @@ import java.util.Scanner;
 
 public class Ex08 
 {
-	public static 
+	public static void telefone(String[] simbolos, char[] numero)
+	{
+		for(int i = 0; i < numero.length; i++)
+		{
+			numero[i] = Character.toLowerCase(numero[i]);
+			for(int j = 0; j < simbolos.length; j++)
+			{
+				if((simbolos[j].indexOf(numero[i])) != -1 )
+				{
+					if(i == 0)
+					{
+						System.out.print("(");
+					}
+					if(i == 3)
+					{
+						System.out.print(")");
+					}
+					System.out.print(simbolos[j].charAt(0));
+				}
+			}
+		}
+	}
+	
 	public static void main(String[] args) 
 	{
 		/*8) Faça um programa em java que receba um número de telefone com letras e símbolos, e
@@ -22,6 +44,9 @@ public class Ex08
 		{
 			numero[i] = input.next().charAt(0);
 		}
+		
+		telefone(simbolos, numero);
+		input.close();
 
 	}
 
