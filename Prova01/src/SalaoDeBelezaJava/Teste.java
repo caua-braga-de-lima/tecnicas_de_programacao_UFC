@@ -102,6 +102,10 @@ public class Teste
 		System.out.print("Insira o CPF: ");
 		String cpf = input.next();
 		Cliente cliente4 = new Cliente(cpf);
+		System.out.print("Insira o nome: ");
+		cliente4.setNome(input.next());
+		
+		
 		
 		divisao();
 		
@@ -113,18 +117,26 @@ public class Teste
 		Serviço serviço4 = new Serviço();
 		serviço4.setId(id);
 		
+		divisao();
+		
 		//ATENDIMENTO: 
 		System.out.println("CADASTRO DE ATENDIMENTO PARA O CLIENTE CADASTRADO: ");
-		int item = input.nextInt();
 		Atendimento atendimento4 = new Atendimento(cliente4);
-		atendimento4.setListaDeServiços(serviço4);
+		System.out.println("Insira um serviço: ");
+		Serviço serviço5 = new Serviço();
+		serviço5.setNome(input.next());
+		atendimento4.setListaDeServiços(serviço5);
+		
+		divisao();
 		
 		//AGENDAMENTO:
 		System.out.println("CADASTRO DE AGENDAMENTO: ");
 		System.out.print("Insira o ID do agendamento: ");
-		int id2 = input.nextInt();
+		int idd = input.nextInt();
 		Agendamento agendamento4 = new Agendamento();
-		agendamento4.setId(id2);
+		agendamento4.setId(idd);
+		
+		divisao();
 		
 		//CABELEIREIRO:
 		System.out.println("CADASTRO DE CABELEIREIRO: ");
@@ -134,8 +146,53 @@ public class Teste
 		String cpf2 = input.next();
 		Cabeleireiro cabeleireiro4 = new Cabeleireiro(cpf2, nome2);
 		
+		divisao();
 		
-
+		
+		// 3) MOSTRAR TODOS OS DADOS CADASTRADOS:
+		
+		System.out.println("DADOS CADASTRADOS: ");
+		
+		divisao();
+		
+		System.out.println("CLIENTES / ID:");
+		System.out.println(cliente1.getNome());
+		System.out.println(cliente1.getId());
+		System.out.println(cliente2.getNome());
+		System.out.println(cliente2.getId());
+		System.out.println(cliente3.getNome());
+		System.out.println(cliente3.getId());
+		System.out.println(cliente4.getNome());
+		System.out.println(cliente4.getId());
+		
+		divisao();
+		
+		System.out.println("CABELEIREIROS:");
+		System.out.println(cabeleireiro1.getNome());
+		System.out.println(cabeleireiro2.getNome());
+		System.out.println(cabeleireiro3.getNome());
+		System.out.println(cabeleireiro4.getNome());
+		
+		divisao();
+		
+		System.out.println("SERVIÇOS");
+		System.out.println(serviço1.getServiço());
+		System.out.println(serviço2.getServiço());
+		System.out.println(serviço3.getServiço());
+		System.out.println(serviço4.getServiço());
+		
+		divisao();
+		
+		System.out.println("ATENDIMENTOS: (CLIENTE / DATA) ");
+		System.out.println(atendimento1.getCliente());
+		System.out.println(atendimento1.getData());
+		System.out.println(atendimento2.getCliente());
+		System.out.println(atendimento2.getData());
+		System.out.println(atendimento3.getCliente());
+		System.out.println(atendimento3.getData());
+		System.out.println(atendimento4.getCliente());
+		System.out.println(atendimento4.getData());
+		
 		
 		
 		

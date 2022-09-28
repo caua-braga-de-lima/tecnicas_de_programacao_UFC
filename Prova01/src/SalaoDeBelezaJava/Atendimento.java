@@ -13,7 +13,7 @@ public class Atendimento
 	
 	public Atendimento(Cliente clienteAtendido)
 	{
-		
+		this.listaDeServiços = new ArrayList<Serviço>();
 	}
 	
 	public Calendar setData(Calendar data)
@@ -32,6 +32,16 @@ public class Atendimento
 	{
 		this.cabeleireiro = cabeleireiro;
 		return this.cabeleireiro;
+	}
+	
+	public Cliente getCliente()
+	{
+		return this.clienteAtendido;
+	}
+	
+	public Calendar getData()
+	{
+		return this.data;
 	}
 	
 	

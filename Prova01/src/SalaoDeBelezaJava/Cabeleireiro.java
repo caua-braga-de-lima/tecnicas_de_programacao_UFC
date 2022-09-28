@@ -10,7 +10,11 @@ public class Cabeleireiro
 	{
 		
 	}
-
+	
+	public String getNome()
+	{
+		return this.nome;
+	}
 	
 	
 	

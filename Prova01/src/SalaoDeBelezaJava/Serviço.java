@@ -47,5 +47,10 @@ public class Serviço
 		return this.valor;
 	}
 	
+	public String getServiço()
+	{
+		return this.nome;
+	}
+	
 	
 }
