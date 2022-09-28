@@ -61,6 +61,8 @@ public class ControleRemoto
 		
 	}
 	
+	public static void 
+	
 	public static void consultar()
 	{
 		System.out.println(" ");

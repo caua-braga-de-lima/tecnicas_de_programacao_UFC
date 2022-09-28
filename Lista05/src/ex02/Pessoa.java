@@ -29,11 +29,11 @@ public class Pessoa
 		
 		if(dia > dia_)
 		{
-			dia_ = dia_ + meses[mes - 1];
+			dia_ += meses[mes - 1];
 			mes_--;
 		}
 		
-		if(mes > mes_)
+		if(mes > mes_) 
 		{
 			ano_ --;
 			mes_ += 12;
@@ -43,9 +43,9 @@ public class Pessoa
 		int meses_idade = mes_ - mes;
 		int anos_idade = ano_ - ano;
 		
-		idade = this.ano;
+		this.idade = anos_idade;
 		
-		System.out.println(this.nome + " tem " + anos_idade + " anos, " + meses_idade + " meses e " + dias_idade + " dias de idade." );
+		System.out.println(this.nome + " tem " + idade + " anos, " + meses_idade + " meses e " + dias_idade + " dias de idade." );
 	}
 	
 }
