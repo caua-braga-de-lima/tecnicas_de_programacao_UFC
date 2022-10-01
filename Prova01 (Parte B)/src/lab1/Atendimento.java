@@ -40,6 +40,23 @@ public class Atendimento
 		return this.listaServico.size();
 	}
 	
+	
+	public double getValorServicos()
+	{
+		double soma = 0;
+		for(int i = 0; i < listaServico.size(); i++)
+		{
+			soma += this.listaServico.get(i).getValor();
+		}
+		
+		return soma;
+	}
+	
+	public Servico getServico(int indice)
+	{
+		return this.listaServico.get(indice);
+	}
+	
 	public int getMesmoNome()
 	{
 		int aux = 0;
@@ -49,6 +66,11 @@ public class Atendimento
 		}
 		
 		return aux;
+	}
+	
+	public Cliente getCliente()
+	{
+		return this.cliente;
 	}
 	
 	
@@ -84,6 +106,8 @@ public class Atendimento
 		{
 			saida += "\n CURIOSIDADE: HA CLIENTE COM MESMO NOME QUE O CABELEIREIRO.\n ";
 		}
+		
+		saida += "\nEsse atendimento possui " + this.getNumdeServicos() + " serviços.\n";
 		saida += "----------------------------------------------------";
 
 		return saida;

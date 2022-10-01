@@ -22,6 +22,7 @@ public class Apresentacao
 		Calendar data = Calendar.getInstance();
 		data.set(2022, 9, 27, 20, 30);
 		agendamento.setData(data);
+		Agenda agenda = new Agenda(agendamento);
 		
 		return agendamento;
 
@@ -133,7 +134,11 @@ public class Apresentacao
 
 		return c;
 	}
+	
 
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) 
 	{
 
@@ -151,9 +156,30 @@ public class Apresentacao
 		
 		System.out.println(atendimento2.imprimir());
 		Balanco b = new Balanco(atendimento);
+		Agenda age = new Agenda(agendamento);
 		b.adAtendimento(atendimento2);
 		
-		System.out.println("O cabeleireiro que mais atuou no salão foi " + b.getMelhorCabeleireiro() );
+		if(b.getMelhorCabeleireiro().equals(null) != true)
+		{
+			System.out.println("O cabeleireiro que mais atuou no salão foi " + b.getMelhorCabeleireiro() );
+		}
+		
+		System.out.println("O cliente que gastou a maior quantia de dinheiro foi: " + b.getMelhorCliente());
+		
+		System.out.println("Houveram " + b.getServicosGratuitos() + " serviços gratuitos.");
+		
+		System.out.println("Deseja buscar algum serviço no salão? Se sim, digite o nome, senão, digite n:");
+		Scanner input = new Scanner (System.in);
+		System.out.println(b.buscarServico(input.next()));
+		
+//		System.out.println("Deseja buscar um agendamento? Insira a data: ");
+//		System.out.println(age.buscarAgendamento(input.nextCalendar()));
+		
+		System.out.println("Deseja saber a disponibilidade de um cabeleireiro? Informe o id: ");
+		age.buscarHorarioCabeleireiro(input.nextInt());
+		
+		System.out.println("Deseja buscar um horário de um cliente? Informe seu id: ");
+		age.buscarHorarioCliente(input.nextInt());
 	}
 
 }
