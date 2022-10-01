@@ -11,6 +11,7 @@ public class Teste
 		System.out.println(" ");
 	}
 	
+	public static Scanner carrega
 	public static void main(String[] args) 
 	{
 		// 1) Instância de todas as classes:
