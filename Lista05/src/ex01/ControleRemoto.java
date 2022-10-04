@@ -10,7 +10,7 @@ public class ControleRemoto
 		System.out.println("CLICK! O Controle está funcionando!");
 	}
 	
-	public static void ajustarVolume(char volume_)
+	public void ajustarVolume(char volume_)
 	{
 		if(volume_ == '+')
 		{
@@ -30,7 +30,7 @@ public class ControleRemoto
 		System.out.println(" ");
 	}
 	
-	public static void trocarCanal(char canal_)
+	public void trocarCanal(char canal_)
 	{
 		if(canal_ == '+')
 		{
@@ -61,7 +61,20 @@ public class ControleRemoto
 		
 	}
 	
-	public static void 
+	public void selecionarCanal(int canal)
+	{
+		this.canal = canal;
+	
+		if(canal <= 0)
+		{
+			System.out.println("CANAL: 0" + this.canal );
+		}
+		else
+		{
+			System.out.println("CANAL: " + this.canal);
+		}
+		
+	}
 	
 	public static void consultar()
 	{

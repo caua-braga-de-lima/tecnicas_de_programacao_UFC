@@ -8,15 +8,15 @@ public class Círculo
 	{
 		this.raio = raio_;
 	}
-	public static double area(double raio)
+	public double area()
 	{
-		double area = Math.pow((3.14) * (raio), 2);
+		double area = Math.pow(this.raio, 2)*3.14;
 		return area;	
 	}
 	
-	public static double circunferencia(double raio)
+	public double circunferencia()
 	{
-		double circunferencia = 2 * (3.14) * raio;
+		double circunferencia = 2 * (3.14) * this.raio;
 		return circunferencia;
 	}
 	

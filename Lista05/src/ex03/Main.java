@@ -7,12 +7,23 @@ public class Main
 	public static void main(String[] args) 
 	{
 		Scanner input = new Scanner(System.in);
-		Círculo circulo = new Círculo(12);
 		System.out.print("Informe o raio do círculo: ");
-		circulo.raio = input.nextDouble();
+		Círculo circulo = new Círculo(input.nextDouble());
+		double op;
 		
-		System.out.print("A área do círculo é: " + circulo.area());
-
+		do
+		{
+			System.out.println("A área do círculo é: " + circulo.area());
+			System.out.println("O perímetro da circunferência é: " + circulo.circunferencia());
+			System.out.println("Insira um valor em % para alterar o raio do círculo: (OU DIGITE 0 PARA ENCERRAR O PROGRAMA.");
+			op = input.nextDouble();
+			circulo.aumentarCirculo(op);
+		}
+		while(op != 0);
+	
+		
+		
 	}
+		
 
 }
