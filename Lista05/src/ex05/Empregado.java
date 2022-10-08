@@ -14,7 +14,7 @@ public class Empregado
 	{
 		this.nome = nome;
 		this.sobrenome = sobrenome;
-		frequencia = new Boolean[29];
+		frequencia = new Boolean[30];
 	}
 	
 	public Empregado(String nome, String sobrenome, int id)
@@ -22,7 +22,7 @@ public class Empregado
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.id = id;
-		frequencia = new Boolean[29];
+		frequencia = new Boolean[30];
 	}
 	
 	public void setSalarioBase(double salario)
