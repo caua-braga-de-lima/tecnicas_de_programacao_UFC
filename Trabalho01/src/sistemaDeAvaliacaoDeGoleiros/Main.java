@@ -17,11 +17,26 @@ public class Main
 				p[i][j] = new Gol(); 
 				p[i][j].setPosicaoX(i);
 				p[i][j].setPosicaoY(j);
+				p[i][j].setSecao(i, j);
+				p[i][j].setQuadrante(i, j);
+				
+				if(p[i][j].getSecao().equals("FORA") == true)
+				{
+					System.out.print(" F ");
+				}
+				else if(p[i][j].getSecao().equals("TRAVE") == true)
+				{
+					System.out.print(" T ");
+				}
+				else
+				{
+					System.out.print(" G ");
+				}
 			}
+			System.out.println(" ");
 		}
 		
-		System.out.println(p[1][16].getPosicaoY());
-
+		System.out.println(p[6][12].GetQuadrante());
 	}
 
 }
