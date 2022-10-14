@@ -1,11 +1,22 @@
 package sistemaDeAvaliacaoDeGoleiros;
 
+import java.util.ArrayList;
+
 public class Selecao 
 {
-	private Goleiro goleiro1;
-	private Goleiro goleiro2;
-	private Goleiro goleiro3;
-	private Goleiro goleiro4;
-	private Goleiro goleiro5;
+	//ATRIBUTO - LISTA DE GOLEIROS
+	private ArrayList<Goleiro> listaGoleiros;
 	
+	//METODO CONSTRUTOR - PERMITE A INSTANCIA DE UMA SELECAO
+	public Selecao()
+	{
+		listaGoleiros = new ArrayList<Goleiro>();
+	}
+	
+	//METODO - RETORNA A LISTA DE GOLEIROS
+	public ArrayList<Goleiro> getSelecao()
+	{
+		return this.listaGoleiros;
+	}
+
 }

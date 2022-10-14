@@ -1,32 +1,59 @@
 package sistemaDeAvaliacaoDeGoleiros;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Gol 
 {
+	//ATRIBUTOS:
 	private int posicaoX;
 	private int posicaoY;
 	private int quadrante;
 	private String secao;
+	private ArrayList<Selecao> listaDeSelecoes;
 	
+	//METODO CONSTRUTOR - PERMITE A INSTANCIA DO GOL E DA SUA LISTA DE SELECOES
+	public Gol(Selecao s1, Selecao s2, Selecao s3, Selecao s4, Selecao s5)
+	{
+		this.listaDeSelecoes = new ArrayList<Selecao>();
+		this.listaDeSelecoes.add(s1);
+		this.listaDeSelecoes.add(s2);
+		this.listaDeSelecoes.add(s3);
+		this.listaDeSelecoes.add(s4);
+		this.listaDeSelecoes.add(s5);
+	}
+	
+	//METODO - RETORNA A LISTA DE SELECOES
+	public ArrayList<Selecao> getListaSelecao()
+	{
+		return this.listaDeSelecoes;
+	}
+	
+	//METODO - INSERIR A POSICAO X DA CELULA DO GOL
 	public void setPosicaoX(int posicaoX)
 	{
 		this.posicaoX = posicaoX;
 	}
 	
+	//METODO - RETORNAR A POSICAO X DA CELULA DO GOL
 	public int getPosicaoX()
 	{
 		return this.posicaoX;
 	}
 	
+	//METODO - INSERIR A POSICAO Y DA CELULA DO GOL
 	public void setPosicaoY(int posicaoY)
 	{
 		this.posicaoY = posicaoY;
 	}
 	
+	//METODO - RETORNAR A POSICAO Y DA CELULA DO GOL
 	public int getPosicaoY()
 	{
 		return this.posicaoY;
 	}
 	
+	//METODO - MAPEAR OS QUADRANTES DO GOL
 	public void setQuadrante(int posicaoX, int posicaoY)
 	{
 		if(this.secao.equals("GOL") == true)
@@ -57,11 +84,13 @@ public class Gol
 		
 	}
 	
+	//METODO - RETORNAR O QUADRANTE DE UMA CELULA DO GOL
 	public int GetQuadrante()
 	{
 		return this.quadrante;
 	}
 	
+	//METODO - MAPEAR AS SECOES DO GOL
 	public void setSecao(int posicaoX, int posicaoY)
 	{
 		for(int i = 0; i < 9; i++)
@@ -72,9 +101,17 @@ public class Gol
 				{
 					this.secao = "FORA";
 				}
-				else if(posicaoX == 1 || posicaoY == 1 || posicaoY == 15)
+				else if(posicaoY == 1 && posicaoX <= 1)
 				{
-					this.secao = "TRAVE";
+					this.secao = "TRAVE ESQUERDA";
+				}
+				else if(posicaoX == 1 && posicaoY < 15)
+				{
+					this.secao = "TRAVE CENTRAL";
+				}
+				else if(posicaoY == 15 && posicaoX >= 1) //!
+				{
+					this.secao = "TRAVE DIREITA";
 				}
 				else if(posicaoX == 2 && posicaoY == 2)
 				{
@@ -90,14 +127,61 @@ public class Gol
 				}
 			}
 		}
-		
-		
 	}
 	
+	//METODO - RETORNAR A SECAO DE UMA CELULA DO GOL
 	public String getSecao()
 	{
 		return this.secao;
 	}
 	
+	//METODO - DINAMICA DE CHUTE A GOL - RECEBE UM GOLEIRO E RETORNA A PONTUACAO
+	public ArrayList<Boolean> chuteAGol(Goleiro goleiro)
+	{
+		Random gerador = new Random();
+		
+		//SORTEAR POSICAO INICIAL DO GOLEIRO COM BASE NO QUADRANTE DE CADA CHUTE:
+		int posicaoDefesaX = 0;
+		int posicaoDefesaY = 0;
+		
+		for(Selecao s : this.listaDeSelecoes)
+		{
+			for(Goleiro g : s.getSelecao())
+			{
+				for(Chute ch : g.getListaDeChutes())
+				{
+					if(ch.getQuadrante() == 1)
+					{
+						posicaoDefesaX = gerador.nextInt(3) + 2; 
+						posicaoDefesaY = gerador.nextInt(7) + 2;
+					}
+					else if(ch.getQuadrante() == 2)
+					{
+						posicaoDefesaX = gerador.nextInt(3) + 2;
+						posicaoDefesaY = gerador.nextInt(6) + 9;
+					}
+					else if(ch.getQuadrante() == 3)
+					{
+						posicaoDefesaX = gerador.nextInt(4) + 5;
+						posicaoDefesaY = gerador.nextInt(7) + 2;
+					}
+					else
+					{
+						posicaoDefesaX = gerador.nextInt(4) + 5;
+						posicaoDefesaY = gerador.nextInt(6) + 9;
+					}
+				}
+			}
+		}
+		
+		//CRIAR MATRIZ DE DEFESA DO GOLEIRO:
+		
+		int linhasDefesa = goleiro.calcAAG()
+		
+		
+		
+			
+		
+	}
 	
 }
