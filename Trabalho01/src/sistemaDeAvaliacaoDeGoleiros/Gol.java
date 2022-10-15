@@ -176,12 +176,54 @@ public class Gol
 		
 		//CRIAR MATRIZ DE DEFESA DO GOLEIRO:
 		
-		int linhasDefesa = goleiro.calcAAG()
+		int linhasDefesa = 0;
+		int colunasDefesa = 0;
 		
+		if(Math.sqrt(goleiro.calcAAG()) % 1 == 0)
+		{
+			linhasDefesa = (int) Math.sqrt(goleiro.calcAAG());
+			colunasDefesa = linhasDefesa;
+		}
+		else
+		{
+			linhasDefesa = (int) (Math.sqrt(goleiro.calcAAG()) + 1);
+			colunasDefesa = linhasDefesa - 1;
+		}
 		
+		int defesa[][] = new int[linhasDefesa][colunasDefesa];
 		
-			
+		// COMPARAR AS COORDENADAS DO CHUTE COM AS COORDENADAS DO GOLEIRO E CONTABILIZAR OS PONTOS:
 		
+		ArrayList<Boolean> listaDeGols = new ArrayList<Boolean>();
+		
+		for(int i = posicaoDefesaX; i < linhasDefesa; i++)
+		{
+			for(int j = posicaoDefesaY; j < colunasDefesa; j++)
+			{
+				for(Chute ch : goleiro.getListaDeChutes())
+				{
+					if(ch.getPosicaoChuteX() == i && ch.getPosicaoChuteY() == j)
+					{
+						goleiro.setPontuacao(1);
+						listaDeGols.add(true);
+					}
+					else if((ch.getPosicaoChuteY() == colunasDefesa && ch.getPosicaoChuteX() == linhasDefesa) || (ch.getPosicaoChuteX() == posicaoDefesaX && ch.getPosicaoChuteY() == posicaoDefesaY) || (ch.getPosicaoChuteX() == linhasDefesa && ch.getPosicaoChuteY() == posicaoDefesaY) || (ch.getPosicaoChuteX() == posicaoDefesaX && ch.getPosicaoChuteY() == colunasDefesa))
+					{
+						if(goleiro.getForca() >= ch.getForca())
+						{
+							goleiro.setPontuacao(1);
+							listaDeGols.add(true);
+						}
+					}
+					else
+					{
+						listaDeGols.add(false);
+					}
+				}
+			}
+		}
+		return listaDeGols;
 	}
 	
 }
+

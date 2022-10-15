@@ -150,7 +150,7 @@ public class Apresentacao
 		
 		for(int i = 0; i < 9; i++)
 		{
-			for(int j = 0; i < 17; j++)
+			for(int j = 0; j < 17; j++)
 			{
 				for(Selecao s : p[i][j].getListaSelecao())
 				{
@@ -161,6 +161,12 @@ public class Apresentacao
 				}
 			}
 		}
+		
+		System.out.println(p[5][6].chuteAGol(g26).get(0));
+		
+		
+		
+		
 		
 		
 		

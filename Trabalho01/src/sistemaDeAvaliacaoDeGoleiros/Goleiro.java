@@ -31,6 +31,12 @@ public class Goleiro
 		listaDeChutes = new ArrayList<Chute>();
 	}
 	
+	//METODO - RETORNA O NOME DO GOLEIRO:
+	public String getNome()
+	{
+		return this.nome;
+	}
+	
 	//METODO - RETORNA A VELOCIDADE
 	public int getVelocidade()
 	{
