@@ -113,6 +113,37 @@ public class Apresentacao
 		Chute c30 = new Chute(30, 7, 3, 5, 3);
 		
 		ArrayList<Chute> listaDeChutes = new ArrayList<Chute>();
+		listaDeChutes.add(c1);
+		listaDeChutes.add(c2);
+		listaDeChutes.add(c3);
+		listaDeChutes.add(c4);
+		listaDeChutes.add(c5);
+		listaDeChutes.add(c6);
+		listaDeChutes.add(c7);
+		listaDeChutes.add(c8);
+		listaDeChutes.add(c9);
+		listaDeChutes.add(c10);
+		listaDeChutes.add(c11);
+		listaDeChutes.add(c12);
+		listaDeChutes.add(c13);
+		listaDeChutes.add(c14);
+		listaDeChutes.add(c15);
+		listaDeChutes.add(c15);
+		listaDeChutes.add(c16);
+		listaDeChutes.add(c17);
+		listaDeChutes.add(c18);
+		listaDeChutes.add(c19);
+		listaDeChutes.add(c20);
+		listaDeChutes.add(c21);
+		listaDeChutes.add(c22);
+		listaDeChutes.add(c23);
+		listaDeChutes.add(c24);
+		listaDeChutes.add(c25);
+		listaDeChutes.add(c26);
+		listaDeChutes.add(c27);
+		listaDeChutes.add(c28);
+		listaDeChutes.add(c29);
+		listaDeChutes.add(c30);
 	
 		
 		//INSTANCIA DAS CELULAS DO GOL E INSERCAO DAS SELECOES:
@@ -162,7 +193,12 @@ public class Apresentacao
 			}
 		}
 		
-		System.out.println(p[5][6].chuteAGol(g26).get(0));
+
+		
+		//QUESTIONARIO:
+		
+		//QUESTAO 1:
+		
 		
 		
 		

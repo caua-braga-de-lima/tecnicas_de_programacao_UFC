@@ -74,9 +74,9 @@ public class Goleiro
 	}
 	
 	//METODO - ADICIONA A LISTA DE 30 CHUTES 
-	public void adListaDeChutes(ArrayList<Chute> listaDeChutes)
+	public void adListaDeChutes(ArrayList<Chute> listadeChutes)
 	{
-		for(Chute ch : listaDeChutes)
+		for(Chute ch : listadeChutes)
 		{
 			this.listaDeChutes.add(ch);
 		}
