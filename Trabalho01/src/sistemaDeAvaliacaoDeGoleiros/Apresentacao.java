@@ -71,13 +71,11 @@ public class Apresentacao
 		Goleiro g23 = new Goleiro("Senichi Iorio", 23, 7, 7, 5, 8, 10, 5);
 		Goleiro g24 = new Goleiro("Albin Kerner", 24, 6, 7, 8, 8, 9, 9);
 		Goleiro g25 = new Goleiro("Jivin Justus", 25, 9, 10, 8, 7, 7, 5);
-		Goleiro g26 = new Goleiro("Clement Fleisher", 26, 10, 9, 10, 5, 7, 8);
 		s5.getSelecao().add(g21);
 		s5.getSelecao().add(g22);
 		s5.getSelecao().add(g23);
 		s5.getSelecao().add(g24);
 		s5.getSelecao().add(g25);
-		s5.getSelecao().add(g26);
 		
 		//INSTANCIAS DE CHUTES:
 		
@@ -148,17 +146,17 @@ public class Apresentacao
 		
 		//INSTANCIA DAS CELULAS DO GOL E INSERCAO DAS SELECOES:
 		
-		Gol p[][] = new Gol[9][17];
-		
-		for(int i = 0; i < 9; i++)
-		{
-			for(int j = 0; j < 17; j++)
-			{
-				p[i][j] = new Gol(s1, s2, s3, s4, s5); 
-				p[i][j].setPosicaoX(i);
-				p[i][j].setPosicaoY(j);
-				p[i][j].setSecao(i, j);
-				p[i][j].setQuadrante(i, j);
+//		Gol p[][] = new Gol[9][17];
+//		
+//		for(int i = 0; i < 9; i++)
+//		{
+//			for(int j = 0; j < 17; j++)
+//			{
+//				p[i][j] = new Gol(s1, s2, s3, s4, s5); 
+//				p[i][j].setPosicaoX(i);
+//				p[i][j].setPosicaoY(j);
+//				p[i][j].setSecao(i, j);
+//				p[i][j].setQuadrante(i, j);
 			
 				
 //				if(p[i][j].getSecao().equals("FORA") == true)
@@ -173,26 +171,35 @@ public class Apresentacao
 //				{
 //					System.out.print(" G ");
 //				}
-			}
+//			}
 //			System.out.println(" ");
-		}
+//		}
+		
+		
+		Gol gol = new Gol(s1, s2, s3, s4, s5);
+		gol.setQuadrante();
+		gol.setSecao();
+		
 		
 		//ADICIONA A LISTA DE 30 CHUTES PARA CADA GOLEIRO:
 		
-		for(int i = 0; i < 9; i++)
+		for(Selecao s : gol.getListaSelecao())
 		{
-			for(int j = 0; j < 17; j++)
+			for(Goleiro g : s.getSelecao())
 			{
-				for(Selecao s : p[i][j].getListaSelecao())
-				{
-					for(Goleiro g : s.getSelecao())
-					{
-						g.adListaDeChutes(listaDeChutes);
-					}
-				}
+				g.adListaDeChutes(listaDeChutes);
 			}
 		}
 		
+		
+		System.out.println(gol.chuteAGol(g25));
+		System.out.println(g25.getPontuacao());
+		
+	
+	
+		//CRIAR MATRIZ DE DEFESA DO GOLEIRO
+		
+
 
 		
 		//QUESTIONARIO:
