@@ -1,6 +1,7 @@
 package sistemaDeAvaliacaoDeGoleiros;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Apresentacao
 {
@@ -18,6 +19,7 @@ public class Apresentacao
 		// INSTANCIAS DOS GOLEIROS E DIVISAO DE SELECOES:
 		
 		Selecao s1 = new Selecao();
+		s1.setNome("1");
 		Goleiro g1 = new Goleiro("Patrick Skaggs", 1, 5, 7, 8, 9, 6, 6);
 		Goleiro g2 = new Goleiro("Uehudah Hack", 2, 5, 7, 8, 9, 6, 6);
 		Goleiro g3 = new Goleiro("Edison Drye", 3, 5, 8, 5, 8, 10, 7);
@@ -30,6 +32,7 @@ public class Apresentacao
 		s1.getSelecao().add(g5);
 		
 		Selecao s2 = new Selecao();
+		s2.setNome("2");
 		Goleiro g6 = new Goleiro("Tristan Karns", 6, 9, 7, 10, 7, 7, 6);
 		Goleiro g7 = new Goleiro("Niven Glaser", 7, 10, 9, 7, 6, 5, 8);
 		Goleiro g8 = new Goleiro("Derwyn Devers", 8, 10, 7, 9, 5, 9, 5);
@@ -42,6 +45,7 @@ public class Apresentacao
 		s2.getSelecao().add(g10);
 		
 		Selecao s3 = new Selecao();
+		s3.setNome("3");
 		Goleiro g11 = new Goleiro("Welford Yepez", 11, 5, 8, 8, 7, 7, 8);
 		Goleiro g12 = new Goleiro("Rishley Snyder", 12, 6, 5, 6, 5, 7, 6);
 		Goleiro g13 = new Goleiro("Milo Mccurdy", 13, 10, 9, 8, 6, 10, 9);
@@ -54,6 +58,7 @@ public class Apresentacao
 		s3.getSelecao().add(g15);
 		
 		Selecao s4 = new Selecao();
+		s4.setNome("4");
 		Goleiro g16 = new Goleiro("Mungo Spangler", 16, 8, 10, 9, 8, 9, 5);
 		Goleiro g17 = new Goleiro("Whitmore Squires", 17, 9, 10, 7, 9, 9, 10);
 		Goleiro g18 = new Goleiro("Pedrog Mccurdy", 18, 8, 5, 10, 5, 7, 7);
@@ -66,6 +71,7 @@ public class Apresentacao
 		s4.getSelecao().add(g20);
 		
 		Selecao s5 = new Selecao();
+		s5.setNome("5");
 		Goleiro g21 = new Goleiro("Edison Loy", 21, 7, 7, 5, 10, 10, 7);
 		Goleiro g22 = new Goleiro("Delling Herndon", 22, 7, 5, 5, 8, 9, 9);
 		Goleiro g23 = new Goleiro("Senichi Iorio", 23, 7, 7, 5, 8, 10, 5);
@@ -141,39 +147,7 @@ public class Apresentacao
 		listaDeChutes.add(c27);
 		listaDeChutes.add(c28);
 		listaDeChutes.add(c29);
-		listaDeChutes.add(c30);
-	
-		
-		//INSTANCIA DAS CELULAS DO GOL E INSERCAO DAS SELECOES:
-		
-//		Gol p[][] = new Gol[9][17];
-//		
-//		for(int i = 0; i < 9; i++)
-//		{
-//			for(int j = 0; j < 17; j++)
-//			{
-//				p[i][j] = new Gol(s1, s2, s3, s4, s5); 
-//				p[i][j].setPosicaoX(i);
-//				p[i][j].setPosicaoY(j);
-//				p[i][j].setSecao(i, j);
-//				p[i][j].setQuadrante(i, j);
-			
-				
-//				if(p[i][j].getSecao().equals("FORA") == true)
-//				{
-//					System.out.print(" F ");
-//				}
-//				else if(p[i][j].getSecao().equals("TRAVE") == true)
-//				{
-//					System.out.print(" T ");
-//				}
-//				else
-//				{
-//					System.out.print(" G ");
-//				}
-//			}
-//			System.out.println(" ");
-//		}
+		listaDeChutes.add(c30);	
 		
 		
 		Gol gol = new Gol(s1, s2, s3, s4, s5);
@@ -191,20 +165,61 @@ public class Apresentacao
 			}
 		}
 		
-		
-		System.out.println(gol.chuteAGol(g25));
-		System.out.println(g25.getPontuacao());
-		
-	
-	
-		//CRIAR MATRIZ DE DEFESA DO GOLEIRO
-		
+		Balanco b = new Balanco(gol);
 
-
-		
 		//QUESTIONARIO:
 		
-		//QUESTAO 1:
+		/*1) O sistema deverá mostrar a média de quantos chutes os 		goleiros de cada seleção
+		conseguiram pegar.*/
+		
+		System.out.println(b.calcularMedia());
+		
+		divisao();
+		
+		/*2) O sistema deverá gerar a pontuação dos goleiros de cada 		seleção e informar qual é
+		o goleiro mais indicado para ser o titular.*/
+		
+		System.out.println(b.calcularTitular());
+		
+		divisao();
+		
+		/*3) O sistema deverá mostrar a média de quantos gols os goleiros de cada seleção
+		levou.*/
+		
+		System.out.println(b.calcularGols());
+		
+		/*4) O sistema deverá mostrar para a lista de chutes, quantos chutes foram para fora,
+		quantos acertaram a trave do lado esquerdo, quantos acertaram a trave do lado
+		direito e quantos acertaram a trave do lado direito. obs: essa computação é feita
+		apenas uma vez, a lista de chutes é a mesma para cada goleiro.*/
+		
+		System.out.println(b.analiseDeChutes());
+		
+		divisao();
+		
+		/*5) O sistema deverá mostrar os gols feitos no ângulo do 		gol.*/
+		
+		System.out.println(b.chutesAnguloGol());
+		
+		divisao();
+		
+		/*8) O sistema deverá imprimir para cada goleiro as seguintes 		informações:
+		Nome, seleção, gols defendidos, gols tomados e AAG.*/
+		
+		System.out.println(b.analiseGoleiros());
+		
+		divisao();
+		
+		/*9) O sistema deverá permitir para um determinado goleiro informado pelo id seja
+		indicado o quadrante em que ele tomou mais gols.*/
+		
+		System.out.print("INFORME O ID DE UM GOLEIRO: ");
+		Scanner input = new Scanner(System.in);
+		System.out.println(b.informarQuadrante(input.nextInt()));
+		
+		input.close();
+		
+		
 		
 		
 		

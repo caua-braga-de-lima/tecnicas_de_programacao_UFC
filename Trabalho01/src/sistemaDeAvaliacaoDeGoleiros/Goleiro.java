@@ -31,6 +31,12 @@ public class Goleiro
 		listaDeChutes = new ArrayList<Chute>();
 	}
 	
+	//METODO - RETORNA O ID DO GOLEIRO:
+	public int getId()
+	{
+		return this.id;
+	}
+	
 	//METODO - RETORNA O NOME DO GOLEIRO:
 	public String getNome()
 	{
@@ -101,16 +107,16 @@ public class Goleiro
 	}
 	
 	//METODO - INSERE A PONTUACAO DO GOLEIRO (NUMERO DE GOLS MARCADOS)
-	public void setPontuacao(int gol)
+	public void setPontuacao()
 	{
-		this.pontuacao += gol;
+		this.pontuacao++;
 	}
 	
 	//METODO - RETORNA A PONTUACAO DO GOLEIRO
 	public int getPontuacao()
 	{
 		return this.pontuacao;
-	}
+	}	
 	
 }
 

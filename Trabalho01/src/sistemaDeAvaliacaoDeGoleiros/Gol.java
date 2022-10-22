@@ -39,36 +39,12 @@ public class Gol
 	}
 
 	
-	
 	//METODO - RETORNA A LISTA DE SELECOES
 	public ArrayList<Selecao> getListaSelecao()
 	{
 		return this.listaDeSelecoes;
 	}
 	
-//	//METODO - INSERIR A POSICAO X DA CELULA DO GOL
-//	public void setPosicaoX(int posicaoX)
-//	{
-//		this.posicaoX = posicaoX;
-//	}
-	
-//	//METODO - RETORNAR A POSICAO X DA CELULA DO GOL
-//	public int getPosicaoX()
-//	{
-//		return this.posicaoX;
-//	}
-	
-//	//METODO - INSERIR A POSICAO Y DA CELULA DO GOL
-//	public void setPosicaoY(int posicaoY)
-//	{
-//		this.posicaoY = posicaoY;
-//	}
-//	
-//	//METODO - RETORNAR A POSICAO Y DA CELULA DO GOL
-//	public int getPosicaoY()
-//	{
-//		return this.posicaoY;
-//	}
 	
 	//METODO - MAPEAR AS SECOES DO GOL
 	public void setSecao()
@@ -78,7 +54,7 @@ public class Gol
 			for(int j = 0; j < 17; j++)
 			{
 				if(posicaoX[i] == 0 || posicaoY[i] == 0 || posicaoY[j] == 16)
-				{
+				{ 
 					this.secao[i][j] = "FORA";
 				}
 				else if(posicaoY[j] == 1 && posicaoX[i] <= 1)
@@ -153,40 +129,71 @@ public class Gol
 		return this.secao[posicaoX][posicaoY];
 	}
 	
+	//METODO - SORTEIA A POSICAO INICIAL X DO GOLEIRO COM BASE NO QUADRANTE DO CHUTE INFORMADO
+	public int sortearPosicaoX(Chute ch)
+	{
+		int posicaoDefesaX = 0;
+		Random gerador = new Random();
+		
+		if(ch.getQuadrante() == 1)
+		{
+			posicaoDefesaX = gerador.nextInt(2, 4); 
+		}
+		else if(ch.getQuadrante() == 2)
+		{
+			posicaoDefesaX = gerador.nextInt(2, 4);
+		}
+		else if(ch.getQuadrante() == 3)
+		{
+			posicaoDefesaX = gerador.nextInt(5, 8);
+		}
+		else
+		{
+			posicaoDefesaX = gerador.nextInt(5, 8);
+		}
+		
+		return posicaoDefesaX;
+	}
+	
+	//METODO - SORTEIA A POSICAO INICIAL Y DO GOLEIRO COM BASE NO QUADRANTE DO CHUTE INFORMADO
+	public int sortearPosicaoY(Chute ch)
+	{
+		int posicaoDefesaY = 0;
+		Random gerador = new Random();
+		
+		if(ch.getQuadrante() == 1)
+		{
+			posicaoDefesaY = gerador.nextInt(2, 8);
+		}
+		else if(ch.getQuadrante() == 2)
+		{
+			posicaoDefesaY = gerador.nextInt(9, 14);
+		}
+		else if(ch.getQuadrante() == 3)
+		{
+			posicaoDefesaY = gerador.nextInt(2, 8);
+		}
+		else
+		{
+			posicaoDefesaY = gerador.nextInt(9, 15);
+		}
+		
+		return posicaoDefesaY;
+	}
+	
 	//METODO - DINAMICA DE CHUTE A GOL - RECEBE UM GOLEIRO E RETORNA A PONTUACAO
 	public ArrayList<Integer> chuteAGol(Goleiro goleiro)
 	{
-		Random gerador = new Random();
-		
-		//SORTEAR POSICAO INICIAL DO GOLEIRO COM BASE NO QUADRANTE DE CADA CHUTE:
 		int posicaoDefesaX = 0;
 		int posicaoDefesaY = 0;
+		
 		ArrayList<Integer> listaDeGols = new ArrayList<Integer>();
 		
 		selecaoDeChutes:
 		for(Chute ch : goleiro.getListaDeChutes())
 		{
-			if(ch.getQuadrante() == 1)
-			{
-				posicaoDefesaX = gerador.nextInt(2, 4); 
-				posicaoDefesaY = gerador.nextInt(2, 8);
-			}
-			else if(ch.getQuadrante() == 2)
-			{
-				posicaoDefesaX = gerador.nextInt(2, 4);
-				posicaoDefesaY = gerador.nextInt(9, 14);
-			}
-			else if(ch.getQuadrante() == 3)
-			{
-				posicaoDefesaX = gerador.nextInt(5, 8);
-				posicaoDefesaY = gerador.nextInt(2, 8);
-			}
-			else
-			{
-				posicaoDefesaX = gerador.nextInt(5, 8);
-				posicaoDefesaY = gerador.nextInt(9, 15);
-			}
-			
+			posicaoDefesaX = sortearPosicaoX(ch);
+			posicaoDefesaY = sortearPosicaoY(ch);
 		
 			//CRIAR MATRIZ DE DEFESA DO GOLEIRO:
 			
@@ -200,7 +207,7 @@ public class Gol
 				{
 					if(auxi == ch.getPosicaoChuteX() && auxj == ch.getPosicaoChuteY())
 					{
-						goleiro.setPontuacao(1);
+						goleiro.setPontuacao();
 						listaDeGols.add(1);
 						continue selecaoDeChutes;
 					}
@@ -209,11 +216,12 @@ public class Gol
 				auxj++;
 				contAAG += 4;
 				auxi = posicaoDefesaX;
+				listaDeGols.add(0);
 			}while(contAAG <= goleiro.calcAAG());		
-	}
+	  }
 		return listaDeGols;
 	
 	
-}
+	}
 }
 
