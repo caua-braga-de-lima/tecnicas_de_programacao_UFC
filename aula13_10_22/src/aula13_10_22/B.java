@@ -5,11 +5,11 @@ public class B {
 	public void b() {
 		System.out.println("Classe B");
 		A a = new A();
-		// try {
+		 try {
 		System.out.println(a.a());
-		// } catch (Exception e) {
-		// e.printStackTrace();
-		// }
+		 } catch (Exception e) {
+		 e.printStackTrace();
+		 }
 		System.out.println("B");
 	}
 

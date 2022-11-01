@@ -15,7 +15,7 @@ public class A {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			System.out.println(" Execunta sempre");
+			System.out.println(" Executa sempre");
 		}
 
 		System.out.println("AAAAA");

@@ -12,6 +12,11 @@ public class Medico // classe abstrata - não pode ser instanciada. serve apenas
 		System.out.println("Aferir sinais");
 	}
 	
+	public String nome()
+	{
+		String msg = "sou um profissional";
+		return msg;
+	}
 
 	
 }

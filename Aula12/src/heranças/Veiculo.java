@@ -5,9 +5,10 @@ public abstract class Veiculo // classe abstrata: classes que não podem instanc
 	public String nome;
 	public int id;
 	
-	public void acelerar()
+	public String acelerar()
 	{
-		System.out.println("Veículo acelerando");
+		String msg = this.nome + " está acelerando. ";
+		return msg;
 	}
 	
 	public abstract void verificarId(); // método abstrato: obriga as classes filhas a terem esses métodos. (de forma concreta);

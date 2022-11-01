@@ -8,10 +8,14 @@
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
 			<item value=""/>
+			<item value="C:\Users\cauab\Desktop\coding scripts\scripts java\Prova01 (Parte B)"/>
 			<item value="C:\Users\cauab\Desktop\coding scripts\scripts java\Aula06"/>
 			<item value="C:\Users\cauab\Desktop\coding scripts\scripts java"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\Users\cauab\Desktop\coding scripts\scripts java\Batalha.zip"/>
+			<item value="C:\Users\cauab\Desktop\coding scripts\scripts java\aula20_10_22.zip"/>
+			<item value="C:\Users\cauab\Desktop\coding scripts\scripts java\aula18_10_22 (1).zip"/>
 			<item value="C:\Users\cauab\Desktop\coding scripts\scripts java\Aula14.zip"/>
 			<item value="C:\Users\cauab\Desktop\coding scripts\scripts java\Prova01(Parte B).zip"/>
 			<item value="C:\Users\cauab\Desktop\coding scripts\scripts java\Aula09.zip"/>
