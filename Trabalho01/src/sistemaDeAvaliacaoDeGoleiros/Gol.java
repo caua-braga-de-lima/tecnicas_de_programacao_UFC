@@ -189,7 +189,6 @@ public class Gol
 		
 		ArrayList<Integer> listaDeGols = new ArrayList<Integer>();
 		
-		selecaoDeChutes:
 		for(Chute ch : goleiro.getListaDeChutes())
 		{
 			posicaoDefesaX = sortearPosicaoX(ch);
@@ -201,27 +200,34 @@ public class Gol
 			int auxi = posicaoDefesaX;
 			int auxj = posicaoDefesaY;
 			
-			do
-			{
-				while(auxi >= posicaoDefesaX-4)
-				{
-					if(auxi == ch.getPosicaoChuteX() && auxj == ch.getPosicaoChuteY())
-					{
-						goleiro.setPontuacao();
-						listaDeGols.add(1);
-						continue selecaoDeChutes;
-					}
-					auxi--;
-				}
-				auxj++;
-				contAAG += 4;
-				auxi = posicaoDefesaX;
-				listaDeGols.add(0);
-			}while(contAAG <= goleiro.calcAAG());		
+			criarMatrizDefesa(goleiro, posicaoDefesaX, listaDeGols, ch, contAAG, auxi, auxj);		
 	  }
 		return listaDeGols;
 	
 	
+	}
+
+
+	private void criarMatrizDefesa(Goleiro goleiro, int posicaoDefesaX, ArrayList<Integer> listaDeGols, Chute ch,
+			int contAAG, int auxi, int auxj) 
+	{
+		do
+		{
+			while(auxi >= posicaoDefesaX-4)
+			{
+				if(auxi == ch.getPosicaoChuteX() && auxj == ch.getPosicaoChuteY())
+				{
+					goleiro.setPontuacao();
+					listaDeGols.add(1);
+					return;
+				}
+				auxi--;
+			}
+			auxj++;
+			contAAG += 4;
+			auxi = posicaoDefesaX;
+			listaDeGols.add(0);
+		}while(contAAG <= goleiro.calcAAG());
 	}
 }
 

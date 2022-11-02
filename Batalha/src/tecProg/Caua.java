@@ -14,7 +14,7 @@ public class Caua extends AdvancedRobot
 	{
 		setColors(Color.WHITE, Color.BLUE, Color.CYAN);
 
-		while (true) 
+		while(true) 
 		{
 			ahead(100);
 			turnLeft(20);
