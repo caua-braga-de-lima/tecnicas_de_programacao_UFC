@@ -1,0 +1,7 @@
+
+*** Avaliação de Goleiros **** 
+ 
+Escolha uma operação:
+1) Média de chute por goleiro	2) Pontuação dos goleiros	3) Média de gols levados por seleção	4) Estatísticas dos chutos 	5) Gols feitos no ângulo	6) Melhores goleiros	7) Goleiro com pouca força	8) Informações dos goleiros	9) Pesquisar goleiro	10) Impressão do gol 
+
+Escolha a funcionalidade desejada: 
