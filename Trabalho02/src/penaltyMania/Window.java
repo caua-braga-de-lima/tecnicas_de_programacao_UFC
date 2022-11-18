@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 public class Window extends JFrame
 {	
+
 	public Window()
 	{
 		this.setSize(1200, 600);
@@ -22,9 +23,9 @@ public class Window extends JFrame
 	public void setWindowLayout() 
 	{
 		this.setLayout(new BorderLayout());
-		Menu menu = new Menu();
-		this.add(menu.getMenu(), BorderLayout.NORTH);
 		Goal goal = new Goal();
+		Menu menu = new Menu();
+		this.add(menu.getMenu(goal), BorderLayout.NORTH);
 		this.add(goal.getGoalPanel(), BorderLayout.CENTER);
 		ScoreDisplay score = new ScoreDisplay();
 		this.add(score.getScore(), BorderLayout.SOUTH);
