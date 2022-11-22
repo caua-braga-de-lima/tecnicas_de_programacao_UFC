@@ -10,6 +10,7 @@ import javax.swing.JButton;
 public class Button extends JButton implements ActionListener
 {
 	public Boolean isOn;
+	public static int cont;
 	
 	public Button newButton(String text, Boolean isOn)
 	{

@@ -1,5 +1,6 @@
-package penaltyMania;
+//CLASSE JANELA - CORRESPONDE AO FRAME BASE DO PROGRAMA E HERDA OS ATRIBUTOS DA CLASSE JFRAME.
 
+package penaltyMania;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -10,7 +11,8 @@ import javax.swing.JPanel;
 
 public class Window extends JFrame
 {	
-
+	
+	//METODO CONSTRUTOR - CONFIGURA O TAMANHO E AS INFORMACOES BASICAS DA JANELA:
 	public Window()
 	{
 		this.setSize(1200, 600);
@@ -20,10 +22,12 @@ public class Window extends JFrame
 		this.setVisible(true);	
 	}
 
+	//METODO - CONFIGURA O LAYOUT DA JANELA E ADICIONA OS 3 PAINEIS PRINCIPAIS:
 	public void setWindowLayout() 
 	{
 		this.setLayout(new BorderLayout());
 		Goal goal = new Goal();
+		GoalKeeper goalKeeper = new GoalKeeper(goal);
 		Menu menu = new Menu();
 		this.add(menu.getMenu(goal), BorderLayout.NORTH);
 		this.add(goal.getGoalPanel(), BorderLayout.CENTER);

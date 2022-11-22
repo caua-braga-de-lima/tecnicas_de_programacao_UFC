@@ -1,5 +1,6 @@
-package penaltyMania;
+//CLASSE GOL - CORRESPONDE AO PAINEL DE CELULAS DO GOL;
 
+package penaltyMania;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.GridLayout;
@@ -13,17 +14,19 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class Goal extends JPanel 
+public class Goal extends JPanel /*implements ActionListener*/
 {
+	//ATRIBUTO - ARRAYLIST DE CELULAS DO GOL:
 	private ArrayList<GoalCell> goalCells;
 	
+	//METODO CONSTRUTOR - INICIA O ARRAYLIST E "CONSTROI" UM GOL 9 X 18:
 	public Goal()
 	{
 		goalCells = new ArrayList<GoalCell>();
 		goalFactory();
 	}
 	
-	
+	//GETTERS E SETTERS:
 	public ArrayList<GoalCell> getGoalCells() 
 	{
 		return goalCells;
@@ -35,7 +38,8 @@ public class Goal extends JPanel
 		this.goalCells = goalCells;
 	}
 
-
+	
+	//METODO - RETORNA O GOL COMO UM PAINEL DE BOTOES:
 	public JPanel getGoalPanel()
 	{
 		JPanel goalPanel = new JPanel();
@@ -43,12 +47,14 @@ public class Goal extends JPanel
 		
 		for(GoalCell g: this.goalCells)
 		{
+//			g.addActionListener(this);
 			goalPanel.add(g.getButton());
 		}
 		
 		return goalPanel;
 	}
 	
+	//METODO - FABRICA DE GOL:
 	public void goalFactory()
 	{
 		for(int i = 0; i < 9; i++)
@@ -57,6 +63,7 @@ public class Goal extends JPanel
 		}
 	}
 
+	//METODO - FAZ O MAPEAMENTO DO GOL:
 	public void getGoalMapping(int i) 
 	{
 		for(int j = 0; j < 18; j++)
@@ -77,6 +84,15 @@ public class Goal extends JPanel
 			}
 		}
 	}
+
+
+	//METODO DE EVENTO - 
+//	public void actionPerformed(ActionEvent e) 
+//	{
+//		GoalKeeper goalKeeper = new GoalKeeper(this);
+//		goalKeeper.getArea();
+//		
+//	}
 
 
 	
