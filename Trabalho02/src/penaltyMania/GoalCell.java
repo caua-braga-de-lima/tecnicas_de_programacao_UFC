@@ -17,6 +17,7 @@ public class GoalCell extends Button implements ActionListener
 	private GoalSection section;
 	private Button button;
 	public Boolean isGoalKeeper;
+	public int cont;
 	
 	//METODO CONSTRUTOR - CONFIGURAS OS ATRIBUTOS BASICOS E CUSTOMIZA O BOTAO DA CELULA:
 	public GoalCell(int XPosition, int YPosition, Button b, GoalSection section, Boolean isGoalKeeper)
@@ -25,6 +26,7 @@ public class GoalCell extends Button implements ActionListener
 		this.YPosition = YPosition;
 		this.button = b;
 		this.section = section;
+		this.cont = 0;
 		toCustomButton();
 		b.addActionListener(this);
 	}
@@ -84,10 +86,11 @@ public class GoalCell extends Button implements ActionListener
 	
 	//METODO DE EVENTO - REFERENTE AO CLIQUE DO USUARIO EM UMA CELULA DO GOL:
 	public void actionPerformed(ActionEvent e) 
-	{		
-		if(this.button.isOn == true)
+	{	
+		if(this.cont == 0) //contador incrementa no metodo de area do goleiro
 		{
 			this.button.setIcon(new ImageIcon(new ImageIcon("img/Ball.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));	
+			this.cont++;
 		}
 
 	}

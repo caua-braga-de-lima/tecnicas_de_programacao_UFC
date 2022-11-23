@@ -18,12 +18,15 @@ public class Goal extends JPanel /*implements ActionListener*/
 {
 	//ATRIBUTO - ARRAYLIST DE CELULAS DO GOL:
 	private ArrayList<GoalCell> goalCells;
+	public Boolean isOn;
 	
 	//METODO CONSTRUTOR - INICIA O ARRAYLIST E "CONSTROI" UM GOL 9 X 18:
 	public Goal()
 	{
 		goalCells = new ArrayList<GoalCell>();
+		this.isOn = false;
 		goalFactory();
+		
 	}
 	
 	//GETTERS E SETTERS:

@@ -29,7 +29,7 @@ public class Window extends JFrame
 		Goal goal = new Goal();
 		GoalKeeper goalKeeper = new GoalKeeper(goal);
 		Menu menu = new Menu();
-		this.add(menu.getMenu(goal), BorderLayout.NORTH);
+		this.add(menu.getMenu(goal, goalKeeper), BorderLayout.NORTH);
 		this.add(goal.getGoalPanel(), BorderLayout.CENTER);
 		ScoreDisplay score = new ScoreDisplay();
 		this.add(score.getScore(), BorderLayout.SOUTH);

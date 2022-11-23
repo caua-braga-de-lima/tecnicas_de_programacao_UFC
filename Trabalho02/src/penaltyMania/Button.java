@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
-public class Button extends JButton implements ActionListener
+public class Button extends JButton
 {
 	public Boolean isOn;
 	public static int cont;
@@ -22,11 +22,7 @@ public class Button extends JButton implements ActionListener
 		return button;	
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
 
 

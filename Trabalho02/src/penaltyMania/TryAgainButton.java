@@ -3,21 +3,33 @@ package penaltyMania;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TryAgainButton implements ActionListener
+import javax.swing.JButton;
+
+public class TryAgainButton extends JButton implements ActionListener
 {
-	private Menu menu;
 	private GoalKeeper goalKeeper;
+	private Button button;
 	
-	public TryAgainButton(Menu menu, GoalKeeper goalKeeper)
+	public JButton getButton(String text, GoalKeeper goalKeeper)
 	{
-		this.menu = menu;
+		Button button = new Button();
+		button.setText(text);
+		button.addActionListener(this);
 		this.goalKeeper = goalKeeper;
+		this.button = button;
+		
+		return button;
 	}
 	
 	public void actionPerformed(ActionEvent e) 
 	{
 		goalKeeper.toResetActingArea();
+		
+		for(GoalCell cell : goalKeeper.getGoalPanel().getGoalCells())
+		{
+			cell.cont = 0;
+		}
 	}
+	
 }
-
 

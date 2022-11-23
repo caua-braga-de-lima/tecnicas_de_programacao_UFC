@@ -14,15 +14,19 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Menu extends JPanel implements ActionListener
+public class Menu extends JPanel 
 {
 	//ATRIBUTO - RECEBE UM GOL DE REFERENCIA PARA TER CONTROLE SOBRE OS SEUS BOTOES.
 	private Goal goal;
+	private GoalKeeper goalKeeper;
+	private ArrayList<Button> buttons;
 	
 	//METODO CONSTRUTOR - CONFIGURA OS ATRIBUTOS BASICOS DO PAINEL:
-	public JPanel getMenu(Goal goal)
+	public JPanel getMenu(Goal goal, GoalKeeper goalKeeper)
 	{
 		this.goal = goal;
+		this.goalKeeper = goalKeeper;
+		buttons = new ArrayList<Button>();
 		Button button = new Button();
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setBackground(Color.BLACK);
@@ -41,27 +45,13 @@ public class Menu extends JPanel implements ActionListener
 		buttonPanel.add(label);
 		buttonPanel.setLayout(new FlowLayout());
 	
-		Button init = new Button();
-		Button finish = new Button();
-		JButton initButton = init.newButton("Iniciar", true);
-		Button tAgain = new Button();
-		initButton.addActionListener(this);
-		buttonPanel.add(initButton);
-		buttonPanel.add(finish.newButton("Finalizar", false));	
-//		buttonPanel.add(new TryAgainButton(this));
-	}	
-
-	//METODO DE EVENTO - REFERENTE AO BOTAO INICIAR DO MENU:
-	public void actionPerformed(ActionEvent e) 
-	{
-		for(GoalCell cell : this.goal.getGoalCells())
-		{
-			cell.getButton().isOn = true;
-		}
-		
-	
+//		InitButton initButton = new InitButton();
+		buttonPanel.add(new InitButton().getButton("Iniciar", goal));
+		buttonPanel.add(new TryAgainButton().getButton("Tentar de Novo", goalKeeper));
+		buttonPanel.add(new FinishButton().getButton("Finalizar", goal));
 	}
-	
+
+
 	
 	
 	
