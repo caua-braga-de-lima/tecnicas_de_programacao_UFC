@@ -14,20 +14,21 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
 public class Menu extends JPanel 
 {
 	//ATRIBUTO - RECEBE UM GOL DE REFERENCIA PARA TER CONTROLE SOBRE OS SEUS BOTOES.
 	private Goal goal;
 	private GoalKeeper goalKeeper;
-	private ArrayList<Button> buttons;
+	private ScoreDisplay score;
 	
-	//METODO CONSTRUTOR - CONFIGURA OS ATRIBUTOS BASICOS DO PAINEL:
-	public JPanel getMenu(Goal goal, GoalKeeper goalKeeper)
+	//METODO - CONFIGURA OS ATRIBUTOS BASICOS DO PAINEL:
+	public JPanel getMenu(Goal goal, GoalKeeper goalKeeper, ScoreDisplay score)
 	{
 		this.goal = goal;
 		this.goalKeeper = goalKeeper;
-		buttons = new ArrayList<Button>();
-		Button button = new Button();
+		this.score = score;
+		ButtonClass button = new ButtonClass();
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setBackground(Color.BLACK);
 		getMenuInfo(button, buttonPanel);
@@ -37,18 +38,16 @@ public class Menu extends JPanel
 	}
 
 	//METODO - CONFIGURA A LEGENDA E OS BOTOES DO PAINEL:
-	private void getMenuInfo(Button button, JPanel buttonPanel) 
+	private void getMenuInfo(ButtonClass button, JPanel buttonPanel) 
 	{
 		JLabel label = new JLabel("Penalty Mania!");
 		label.setForeground(Color.white);
 		label.setFont(new Font("Google Sans", Font.BOLD, 20));
 		buttonPanel.add(label);
 		buttonPanel.setLayout(new FlowLayout());
-	
-//		InitButton initButton = new InitButton();
 		buttonPanel.add(new InitButton().getButton("Iniciar", goal));
 		buttonPanel.add(new TryAgainButton().getButton("Tentar de Novo", goalKeeper));
-		buttonPanel.add(new FinishButton().getButton("Finalizar", goal));
+		buttonPanel.add(new FinishButton().getButton("Finalizar", goal, score, goalKeeper));
 	}
 
 

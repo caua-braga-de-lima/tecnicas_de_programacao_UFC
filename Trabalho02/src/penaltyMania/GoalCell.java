@@ -1,6 +1,7 @@
 //CLASSE CELULA DO GOL - REFERENTE A CADA QUADRADINHO INDIVIDUAL DO PAINEL DO GOL.
 
 package penaltyMania;
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -15,24 +16,30 @@ public class GoalCell extends Button implements ActionListener
 	private int XPosition;
 	private int YPosition;
 	private GoalSection section;
-	private Button button;
+	private ButtonClass button;
+	public ActionEvent event;
 	public Boolean isGoalKeeper;
-	public int cont;
+	public static int clickCounter;
 	
 	//METODO CONSTRUTOR - CONFIGURAS OS ATRIBUTOS BASICOS E CUSTOMIZA O BOTAO DA CELULA:
-	public GoalCell(int XPosition, int YPosition, Button b, GoalSection section, Boolean isGoalKeeper)
+	public GoalCell(int XPosition, int YPosition, ButtonClass b, GoalSection section, Boolean isGoalKeeper)
 	{
 		this.XPosition = XPosition;
 		this.YPosition = YPosition;
 		this.button = b;
 		this.section = section;
-		this.cont = 0;
 		toCustomButton();
 		b.addActionListener(this);
 	}
 	
+	//METODO CONSTRUTOR AUXILIAR:
+	public GoalCell()
+	{
+		
+	}
+	
 	//GETTERS E SETTERS PARA OS ATRIBUTOS:
-	public Button getButton() 
+	public ButtonClass getButton() 
 	{
 		return button;
 	}
@@ -45,18 +52,6 @@ public class GoalCell extends Button implements ActionListener
 	public int getYPosition() 
 	{
 		return YPosition;
-	}
-	
-	//METODO - MUDA A POSICAO X DE UMA CELULA EM UMA UNIDADE:
-	public void setXPosition(int change) 
-	{
-		XPosition += change;;
-	}
-	
-	//METODO - MUDA A POSICAO Y DE UMA CELULA EM UMA UNIDADE:
-	public void setYPosition(int change) 
-	{
-		YPosition += change;
 	}
 	
 	public GoalSection getSection() 
@@ -87,14 +82,14 @@ public class GoalCell extends Button implements ActionListener
 	//METODO DE EVENTO - REFERENTE AO CLIQUE DO USUARIO EM UMA CELULA DO GOL:
 	public void actionPerformed(ActionEvent e) 
 	{	
-		if(this.cont == 0) //contador incrementa no metodo de area do goleiro
+		if(this.button.isOn == true)
 		{
-			this.button.setIcon(new ImageIcon(new ImageIcon("img/Ball.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));	
-			this.cont++;
+			this.event = e;
+			if(GoalCell.clickCounter == 0)
+			{
+				this.button.setIcon(new ImageIcon(new ImageIcon("img/ball.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));	
+				GoalCell.clickCounter++;
+			}
 		}
-
 	}
-	
-	
-
 }

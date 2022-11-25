@@ -19,13 +19,15 @@ public class GoalKeeper implements ActionListener
 	private GoalCell foot;
 	private ArrayList<GoalCell> actingArea;
 	private Goal goalPanel;
-	private int cont;
+	private int computerScore;
+	private int playerScore;
+	public int clickCounter;
 
 	//METODO CONSTRUTOR - RECEBE UM GOL DE REFERENCIA PARA SORTEAR ALGUMAS DE SUAS CELULAS:
 	public GoalKeeper(Goal goalPanel)
 	{
 		this.goalPanel = goalPanel;
-		this.cont = 0;
+		this.clickCounter = 0;
 		
 		for(GoalCell cell : this.goalPanel.getGoalCells())
 		{
@@ -34,16 +36,46 @@ public class GoalKeeper implements ActionListener
 
 		actingArea = new ArrayList<GoalCell>();
 	}
-	
-	//GETTER E SETTER DO GOL:
+
+	//GETTERS E SETTERS:
 	public Goal getGoalPanel() 
 	{
 		return goalPanel;
 	}
-
-	public void setGoalPanel(Goal goalPanel) 
+	
+	public int getComputerScore() 
 	{
-		this.goalPanel = goalPanel;
+		return computerScore;
+	}
+	
+	public int getPlayerScore() 
+	{
+		return playerScore;
+	}
+	
+	public ArrayList<GoalCell> getActingArea() 
+	{
+		return actingArea;
+	}
+	
+	//METODO - SOMA 1 A PONTUACAO DO COMPUTADOR:
+	public void setComputerScore() 
+	{
+		this.computerScore++;
+	}
+
+
+	//METODO - SOMA 1 A PONTUACAO DO JOGADOR:
+	public void setPlayerScore() 
+	{
+		this.playerScore++;
+	}
+	
+	//METODO - RESETA O PLACAR:
+	public void resetScoreBoard()
+	{
+		this.playerScore = 0;
+		this.computerScore = 0;
 	}
 
 	//METODO - SORTEIA A CELULA DA MAO DIREITA E A CELULA DA MAO ESQUERDA:
@@ -53,16 +85,11 @@ public class GoalKeeper implements ActionListener
 		
 		do
 		{
-			this.leftHand = new GoalCell(drawer.nextInt(0, 10), drawer.nextInt(0, 19), new Button().newButton(null, false), null, true);
+			this.leftHand = new GoalCell(drawer.nextInt(0, 10), drawer.nextInt(0, 19), new ButtonClass().newButton(null, false), null, true);
 			
-			this.rightHand = new GoalCell(drawer.nextInt(0, 10), drawer.nextInt(0, 19), new Button().newButton(null, false), null, true);
+			this.rightHand = new GoalCell(drawer.nextInt(0, 10), drawer.nextInt(0, 19), new ButtonClass().newButton(null, false), null, true);
 			
-		}while(this.leftHand.getYPosition() > this.rightHand.getYPosition());
-		
-		
-		System.out.println("mao esquerda: " + this.leftHand.getXPosition() + ", " + this.leftHand.getYPosition());
-		System.out.println("mao direita: " + this.rightHand.getXPosition() + ", " + this.rightHand.getYPosition());
-		
+		}while(this.leftHand.getYPosition() > this.rightHand.getYPosition());	
 	}
 	
 
@@ -70,9 +97,7 @@ public class GoalKeeper implements ActionListener
 	public void getFoot() 
 	{
 		Random drawer = new Random();
-		this.foot = new GoalCell(8, drawer.nextInt(this.leftHand.getYPosition(), this.rightHand.getYPosition() + 1), new Button().newButton(null, false), null, true);
-		
-		System.out.println("pe: " + this.foot.getXPosition() + ", " + this.foot.getYPosition());
+		this.foot = new GoalCell(8, drawer.nextInt(this.leftHand.getYPosition(), this.rightHand.getYPosition() + 1), new ButtonClass().newButton(null, false), null, true);
 	}
 	
 	//METODO - SELECIONA AS CELULAS QUE FARAO PARTE DA AREA DE ATUACAO COM BASE NAS 3 CELULAS JA SORTEADAS:
@@ -100,71 +125,125 @@ public class GoalKeeper implements ActionListener
 		}
 	}
 	
-	public void toResetActingArea() 
-	{
-		this.actingArea.removeAll(actingArea);	
-		for(GoalCell cell : this.goalPanel.getGoalCells())
-		{
-			if(cell.cont == 1)
-			{
-				if(cell.isGoalKeeper == true)
-				{
-					cell.isGoalKeeper = false;
-					cell.toCustomButton();
-				}
-			}
-		}
-	}
-
+	//METODO - DESTACA A AREA NO PAINEL DO GOL:
 	public void toQuoteActingArea() 
 	{
-		
 		this.getArea();
 		for(GoalCell cell2 : this.actingArea)
 		{
-			cell2.getButton().setBackground(Color.RED);				
+			customAreaIcon(cell2);
 		}
-
+		this.getScore();	
+	}
+	
+	//METODO AUXILIAR - MUDA A COR DAS CELULAS DA AREA DO GOLEIRO E ADICIONA OS ICONES AS CELULAS DA MAO E DO PE:
+	public void customAreaIcon(GoalCell cell2) 
+	{
+		if(cell2.getXPosition() == leftHand.getXPosition() && cell2.getYPosition() == leftHand.getYPosition())
+		{
+			cell2.getButton().setIcon(new ImageIcon(new ImageIcon("img/leftHand.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+			cell2.getButton().setBackground(Color.YELLOW);
+		}
+		else if(cell2.getXPosition() == rightHand.getXPosition() && cell2.getYPosition() == rightHand.getYPosition())
+		{
+			cell2.getButton().setIcon(new ImageIcon(new ImageIcon("img/rightHand.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+			cell2.getButton().setBackground(Color.YELLOW);
+		}
+		else if(cell2.getXPosition() == 8 && cell2.getYPosition() == foot.getYPosition())
+		{
+			cell2.getButton().setIcon(new ImageIcon(new ImageIcon("img/foot.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+			cell2.getButton().setBackground(Color.YELLOW);
+		}
+		else
+		{
+		cell2.getButton().setBackground(Color.YELLOW);	
+		}
+	}
+	
+	//METODO - RESETA A AREA DE ATUACAO:
+	public void toResetActingArea() 
+	{
+		for(GoalCell cell : this.goalPanel.getGoalCells())
+		{
+			cell.isGoalKeeper = false;
+			cell.toCustomButton();
+			cell.getButton().setIcon(null);
+		}
+		this.actingArea.removeAll(actingArea);
 		
+	}	
+	
+	//METODO - CONTROLA OS CLIQUES PARA O INICIO DE UMA NOVA JOGADA:
+	public void clickControlling() 
+	{
+		if(this.clickCounter != 0)
+		{
+			for(GoalCell cell : this.goalPanel.getGoalCells())
+			{
+				cell.getButton().isOn = false;
+			}
+		}
+		else
+		{
+			toQuoteActingArea();
+			this.clickCounter++;
+			
+			for(GoalCell cell : this.goalPanel.getGoalCells())
+			{
+				GoalCell.clickCounter = 0;
+			}
+		}
+	}
+	
+	//METODO - CALCULA A PONTUACAO DO JOGADOR E DO COMPUTADOR:
+	public void getScore()
+	{
+		GoalCell auxCell = new GoalCell();
+		for(GoalCell cell : this.goalPanel.getGoalCells())
+		{
+			if(cell.event != null)
+			{
+				auxCell = cell;
+			}
+		}
+		verifyScore(auxCell);
+	}
+
+	//METODO AUXILIAR - VERIFICA A OCORRENCIA DE UM GOL OU DE UMA DEFESA:
+	public void verifyScore(GoalCell cell) 
+	{
+		if(this.actingArea.contains(cell) || cell.getSection() == GoalSection.OUT || cell.getSection() == GoalSection.POST)	
+		{
+			this.setComputerScore();
+		}
+		else
+		{
+			this.setPlayerScore();
+		}
 	}
 
 	//METODO DE EVENTO - REFERENTE AO CLIQUE DO USUARIO EM UMA CELULA DO GOL:
 	public void actionPerformed(ActionEvent e) 
 	{	
-		if(this.goalPanel.isOn == true)
+		Boolean check = false;
+		
+		for(GoalCell cell : this.goalPanel.getGoalCells())
 		{
-			if(this.cont >= 1)
+			if(cell.getButton().isOn == true)
 			{
-				for(GoalCell cell : this.goalPanel.getGoalCells())
-				{
-					cell.getButton().isOn = false;
-				}
-			}
-			else
-			{
-				toQuoteActingArea();
-				this.cont++;
-				
-				for(GoalCell cell : this.goalPanel.getGoalCells())
-				{
-					cell.cont = 0;
-				}
-				
+				check = true;
 			}
 		}
 		
-		
-	}
-
-
-	
-		
-		
-		
-		
-	
-	
-	
-
-	
+		if(check == true)
+		{
+			clickControlling();
+		}	
+	}	
 }
+
+
+
+	
+	
+	

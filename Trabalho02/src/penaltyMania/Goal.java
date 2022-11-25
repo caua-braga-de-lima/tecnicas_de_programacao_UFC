@@ -25,8 +25,7 @@ public class Goal extends JPanel /*implements ActionListener*/
 	{
 		goalCells = new ArrayList<GoalCell>();
 		this.isOn = false;
-		goalFactory();
-		
+		goalFactory();	
 	}
 	
 	//GETTERS E SETTERS:
@@ -34,7 +33,6 @@ public class Goal extends JPanel /*implements ActionListener*/
 	{
 		return goalCells;
 	}
-
 
 	public void setGoalCells(ArrayList<GoalCell> goalCells) 
 	{
@@ -50,7 +48,6 @@ public class Goal extends JPanel /*implements ActionListener*/
 		
 		for(GoalCell g: this.goalCells)
 		{
-//			g.addActionListener(this);
 			goalPanel.add(g.getButton());
 		}
 		
@@ -73,40 +70,18 @@ public class Goal extends JPanel /*implements ActionListener*/
 		{
 			if(i == 0 || j == 0 || j == 17)
 			{
-				this.goalCells.add(new GoalCell(i, j, new Button().newButton(null, false), GoalSection.OUT, false));
+				this.goalCells.add(new GoalCell(i, j, new ButtonClass().newButton(null, false), GoalSection.OUT, false));
 			}
 			
 			else if(i == 1 || j == 1 || j == 16)
 			{
-				this.goalCells.add(new GoalCell(i, j, new Button().newButton(null, false), GoalSection.POST, false));
+				this.goalCells.add(new GoalCell(i, j, new ButtonClass().newButton(null, false), GoalSection.POST, false));
 			}
 			
 			else
 			{
-				this.goalCells.add(new GoalCell(i, j, new Button().newButton(null, false), GoalSection.GOAL, false));
+				this.goalCells.add(new GoalCell(i, j, new ButtonClass().newButton(null, false), GoalSection.GOAL, false));
 			}
 		}
 	}
-
-
-	//METODO DE EVENTO - 
-//	public void actionPerformed(ActionEvent e) 
-//	{
-//		GoalKeeper goalKeeper = new GoalKeeper(this);
-//		goalKeeper.getArea();
-//		
-//	}
-
-
-	
-		
-
-
-
-
-
-	
-	
-
-
 }
