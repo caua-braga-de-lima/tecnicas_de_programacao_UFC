@@ -169,8 +169,7 @@ public class GoalKeeper implements ActionListener
 			cell.toCustomButton();
 			cell.getButton().setIcon(null);
 		}
-		this.actingArea.removeAll(actingArea);
-		
+		this.actingArea.removeAll(actingArea);		
 	}	
 	
 	//METODO - CONTROLA OS CLIQUES PARA O INICIO DE UMA NOVA JOGADA:

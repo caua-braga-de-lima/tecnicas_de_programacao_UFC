@@ -62,7 +62,6 @@ public class ScoreDisplay extends JPanel implements ActionListener
 	{
 		this.compLabel.setText("COMPUTADOR: " + goalKeeper.getComputerScore());
 		this.playerLabel.setText("JOGADOR: " + goalKeeper.getPlayerScore());
-		
 	}
 	
 	

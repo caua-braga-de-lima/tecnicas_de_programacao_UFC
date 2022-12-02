@@ -13,7 +13,6 @@ public class FinishButton extends JButton implements ActionListener{
 
 	//ATRIBUTOS - RECEBE O GOLEIRO E O PAINEL DE PONTUACAO PARA TER CONTROLE SOBRE AMBOS:
 	private GoalKeeper goalKeeper;
-	private ScoreDisplay score;
 	public Boolean isOn;
 	
 	//METODO - RETORNA O BOTAO JA COM O ACTIONLISTENER:
