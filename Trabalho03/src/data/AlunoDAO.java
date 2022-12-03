@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import negocio.Aluno;
+import business.SweepStake;
 
 /*DAO Data Access Object*/
 public class AlunoDAO {
@@ -17,23 +17,23 @@ public class AlunoDAO {
 	// U atualizar o dado
 	// D apagar o dado
 
-	public ArrayList<Aluno> listar() 
+	public ArrayList<SweepStake> listar() 
 	{
-		ArrayList<Aluno> aux = new ArrayList<Aluno>();
+		ArrayList<SweepStake> aux = new ArrayList<SweepStake>();
 		try {
-			Connection conexao = new Conexao().getConexao();
+			Connection conexao = new Connector().getConnection();
 
 			ResultSet resultado = 
 					conexao.prepareStatement("select * from dadosDoAluno")
 					.executeQuery();
 			
-			Aluno aluno;
+			SweepStake aluno;
 			
 			while(resultado.next()) 
 			{
-				aluno = new Aluno();
+				aluno = new SweepStake();
 				aluno.setId(resultado.getInt("id"));
-				aluno.setNome(resultado.getString("nome"));
+				aluno.setName(resultado.getString("nome"));
 				aluno.setCPF(resultado.getString("cpf"));
 				aux.add(aluno);
 			}

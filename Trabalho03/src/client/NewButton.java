@@ -1,23 +1,29 @@
 package client;
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 
-public class NewButton extends Button implements ActionListener
+public class NewButton implements ActionListener
 {
-	public Button getButton()
-	{
-		Button button = new Button();
-		button.newButton("New Sweepstake", Color.green);
-		button.addActionListener(this);
+	private MainWindow mainWindow;
+	private SignUpWindow sWindow;
 	
-		return button;
+	public JButton getButton(MainWindow mainWindow, SignUpWindow sWindow)
+	{
+		this.mainWindow = mainWindow;
+		this.sWindow = sWindow;
+		Button button = new Button();
+		JButton newSSButton = button.newButton("New SweepStake", Color.blue); 
+		newSSButton.addActionListener(this);
+		
+		return newSSButton;
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
+		mainWindow.setVisible(false);
+		this.sWindow.setVisible(true);
 		
 	}
 }

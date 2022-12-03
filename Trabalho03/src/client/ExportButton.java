@@ -4,14 +4,16 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+
 public class ExportButton extends Button implements ActionListener
 {
-	public Button getButton()
+	public JButton getButton()
 	{
 		Button button = new Button();
-		button.newButton("Export Sweepstake", Color.white);
-		button.addActionListener(this);
-		return button;
+		JButton exportButton = button.newButton("Export Sweepstake", Color.GREEN);
+		exportButton.addActionListener(this);
+		return exportButton;
 	}
 	public void actionPerformed(ActionEvent e) 
 	{

@@ -1,10 +1,12 @@
 package client;
+
+import business.SweepStake;
+import data.AlunoDAO;
+
 public class Main 
 {
-
 	public static void main(String[] args) 
 	{
-		Window system = new Window();
+		MainWindow window = new MainWindow();
 	}
-
 }
