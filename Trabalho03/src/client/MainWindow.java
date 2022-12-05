@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import business.QuarterFinals;
+
 public class MainWindow extends JFrame
 {
 	private JPanel titlePanel;
@@ -30,9 +32,13 @@ public class MainWindow extends JFrame
 
 	public void getPanels() 
 	{
+		QuarterFinalsWindow qfWindow = new QuarterFinalsWindow(new SemiFinalsWindow(new FinalsWindow()));
+		
 		this.menuPanel = new MenuPanel();
-		this.add(this.menuPanel.getPanel(this, new SignUpWindow(new QuarterFinalsWindow(new SemiFinalsWindow(new FinalsWindow())))), BorderLayout.CENTER);
+		this.add(this.menuPanel.getPanel(this, new SignUpWindow(qfWindow)), BorderLayout.CENTER);
+		
 	}
+	
 
 	public void getPanelInfo() 
 	{

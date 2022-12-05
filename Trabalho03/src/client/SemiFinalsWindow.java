@@ -13,11 +13,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import business.QuarterFinals;
+
 public class SemiFinalsWindow extends JFrame implements ActionListener
 {
 	private JPanel scorePanel;
 	private FinalsWindow fWindow;
 	private TextField auxField;
+	private QuarterFinals quarterFinals;
 	private ArrayList<TextField> textFields;
 	
 	public SemiFinalsWindow(FinalsWindow fWindow)

@@ -14,6 +14,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import business.QuarterFinals;
 import business.SoccerTeam;
 import business.SweepStake;
 
@@ -50,7 +52,7 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 		
 	}
 	
-	public ArrayList<SoccerTeam> getSoccerTeams() 
+	public ArrayList<SoccerTeam> getQuarterTeams() 
 	{
 		return quarterTeams;
 	}
@@ -112,7 +114,7 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 		}
 		try 
 		{
-			int aux = Integer.parseInt(string);
+			Integer.parseInt(string);
 		} 
 		catch (NumberFormatException e) 
 		{
@@ -146,6 +148,9 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 				System.out.println(sc.getName() + " " + sc.getScore());
 	
 			}
+			
+			QuarterFinals qf = new QuarterFinals(this.quarterTeams);
+			qf.getWinners();
 			
 			this.setVisible(false);
 			this.sfWindow.setVisible(true);
@@ -222,4 +227,6 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 			}
 		}
 	}
+	
+	
 }
