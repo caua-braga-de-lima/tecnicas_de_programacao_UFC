@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,6 +17,8 @@ public class SemiFinalsWindow extends JFrame implements ActionListener
 {
 	private JPanel scorePanel;
 	private FinalsWindow fWindow;
+	private TextField auxField;
+	private ArrayList<TextField> textFields;
 	
 	public SemiFinalsWindow(FinalsWindow fWindow)
 	{
@@ -38,15 +41,20 @@ public class SemiFinalsWindow extends JFrame implements ActionListener
 	public void getPanelInfo() 
 	{
 		this.scorePanel = new JPanel();
+		this.textFields = new ArrayList<TextField>(); 
 		scorePanel.setLayout(new GridLayout(2, 9));
 		
 		for(int i = 1; i <= 4; i++)
 		{
 			scorePanel.add(teamLabel());
 			//para syncar com o bolao, receba um como parametro
-			scorePanel.add(new TextField(3));
+			auxField = new TextField(3);
+			this.textFields.add(auxField);
+			scorePanel.add(auxField);
 			scorePanel.add(scoreLabel());
-			scorePanel.add(new TextField(1));
+			auxField = new TextField(1);
+			this.textFields.add(auxField);
+			scorePanel.add(auxField);
 			
 			if(i % 2 != 0)
 			{
@@ -60,7 +68,7 @@ public class SemiFinalsWindow extends JFrame implements ActionListener
 		JLabel label = new JLabel();
 		label.setText("SEMIFINALS - SET YOUR BET:");
 		label.setAlignmentX(CENTER_ALIGNMENT);
-		label.setForeground(Color.black);
+		label.setForeground(Color.white);
 		label.setFont(new Font("Google Sans", Font.BOLD, 30));
 		return label;
 	}
@@ -80,10 +88,22 @@ public class SemiFinalsWindow extends JFrame implements ActionListener
 		return new JLabel("X");
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		this.setVisible(false);
-		this.fWindow.setVisible(true);
+		Boolean check = true;
+		
+		for(TextField field : this.textFields)
+		{
+			if(field.getText().equals(""))
+			{
+				check = false;
+			}
+		}
+		
+		if(check == true)
+		{
+			this.setVisible(false);
+			this.fWindow.setVisible(true);
+		}
 	}
 }

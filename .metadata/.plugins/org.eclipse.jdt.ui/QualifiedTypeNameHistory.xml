@@ -22,11 +22,8 @@
     <fullyQualifiedTypeName name="javax.swing.BoxLayout"/>
     <fullyQualifiedTypeName name="java.text.NumberFormat.Field"/>
     <fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="javax.swing.JTextField"/>
     <fullyQualifiedTypeName name="javax.swing.JComboBox"/>
-    <fullyQualifiedTypeName name="business.SoccerTeam"/>
-    <fullyQualifiedTypeName name="business.SweepStake"/>
     <fullyQualifiedTypeName name="javax.swing.JLabel"/>
     <fullyQualifiedTypeName name="java.awt.GridLayout"/>
     <fullyQualifiedTypeName name="javax.swing.JFrame"/>
@@ -36,4 +33,8 @@
     <fullyQualifiedTypeName name="javax.swing.JButton"/>
     <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
+    <fullyQualifiedTypeName name="business.SweepStake"/>
+    <fullyQualifiedTypeName name="business.SoccerTeam"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="client.QuarterFinalsWindow"/>
 </qualifiedTypeNameHistroy>

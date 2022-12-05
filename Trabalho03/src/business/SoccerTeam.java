@@ -13,6 +13,11 @@ public class SoccerTeam
 		this.flag = flag;
 		this.score = score;
 	}
+	
+	public SoccerTeam()
+	{
+		
+	}
 
 	public String getName() 
 	{

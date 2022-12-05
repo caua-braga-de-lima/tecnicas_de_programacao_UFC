@@ -47,13 +47,15 @@ public class SignUpWindow extends JFrame implements ActionListener
 		sweepStake.setName(textField.getText());
 	}
 
-	@Override
 	public void actionPerformed(ActionEvent e) 
 	{
-		if(this.textField.getText().equals(""))
+		if(!this.textField.getText().equals(""))
 		{
+			this.sweepStake = new SweepStake();
+			sweepStake.setName(textField.getText());
 			this.setVisible(false);
 			qfWindow.setVisible(true);
 		}
+
 	}
 }

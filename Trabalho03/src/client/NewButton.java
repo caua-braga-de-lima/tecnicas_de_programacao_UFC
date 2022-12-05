@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
+import business.SweepStake;
+
 public class NewButton implements ActionListener
 {
 	private MainWindow mainWindow;
