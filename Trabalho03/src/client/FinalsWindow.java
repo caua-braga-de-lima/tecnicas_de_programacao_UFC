@@ -14,12 +14,20 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import business.Player;
+import business.SoccerTeam;
+import business.SweepStakes;
+import data.SweepStakeDAO;
+
 public class FinalsWindow extends JFrame implements ActionListener
 {
 	private JPanel scorePanel;
 	private TextField auxField;
+	private Player player;
 	private ArrayList<TextField> textFields;
-	
+	private ArrayList<SoccerTeam> sfWinners;
+	private SoccerTeam winner;
+
 	public FinalsWindow()
 	{
 		this.setSize(800, 600);
@@ -36,6 +44,11 @@ public class FinalsWindow extends JFrame implements ActionListener
 		doneButton.addActionListener(this);
 		this.add(doneButton, BorderLayout.SOUTH);
 		
+	}
+	
+	public void setPlayer(Player player) 
+	{
+		this.player = player;
 	}
 	
 	public void getPanelInfo() 
@@ -73,6 +86,12 @@ public class FinalsWindow extends JFrame implements ActionListener
 		return label;
 	}
 	
+	public void setSfWinners(ArrayList<SoccerTeam> sfWinners) 
+	{
+		this.sfWinners = sfWinners;
+		this.player.setFinalTeams(sfWinners);
+	}
+	
 	public JLabel teamLabel()
 	{
 		return new JLabel("TEAM: ");
@@ -86,6 +105,48 @@ public class FinalsWindow extends JFrame implements ActionListener
 	public JLabel xSymbol()
 	{
 		return new JLabel("X");
+	}
+	
+	public void autoFill()
+	{
+		int aux = -1;
+		for(int i = 0; i < this.textFields.size(); i++)
+		{
+			if(i % 2 == 0)
+			{
+				aux++;
+				this.textFields.get(i).setText(this.sfWinners.get(aux).getName());
+			}
+		}
+	}
+	
+	public void setTeamsScore() 
+	{
+		int aux = -1;
+		for(int i = 0; i < this.textFields.size(); i++)
+		{
+			if(i % 2 != 0)
+			{
+				aux++;
+				this.sfWinners.get(aux).setScore(Integer.parseInt(textFields.get(i).getText()));
+			}
+		}	
+	}
+	
+	public SoccerTeam getWinner()
+	{
+		if(this.sfWinners.get(0).getScore() > this.sfWinners.get(1).getScore())
+		{
+			this.winner = this.sfWinners.get(0);
+			this.player.setWinner(winner);
+		}
+		else
+		{
+			this.winner = this.sfWinners.get(1);
+			this.player.setWinner(winner);
+		}
+		
+		return this.winner;
 	}
 
 	@Override
@@ -103,7 +164,29 @@ public class FinalsWindow extends JFrame implements ActionListener
 		
 		if(check == true)
 		{
+			setTeamsScore();
+			getWinner();
+			System.out.println(this.player.getName());
 			
+			for(SoccerTeam team : this.player.getQuarterTeams())
+			{
+				System.out.println(team.getName() + team.getScore());
+			}
+			for(SoccerTeam team : this.player.getSemiTeams())
+			{
+				System.out.println(team.getName() + team.getScore());
+			}
+			for(SoccerTeam team : this.player.getFinalTeams())
+			{
+				System.out.println(team.getName() + team.getScore());
+			}
+			System.out.println(this.player.getWinner().getName());
+			
+			SweepStakeDAO sweepStake = new SweepStakeDAO(new SweepStakes());
+			sweepStake.insertSweepStake(this.player);
+			this.setVisible(false);
+			WinnerWindow window = new WinnerWindow(getWinner());
+
 		}
 		
 	}

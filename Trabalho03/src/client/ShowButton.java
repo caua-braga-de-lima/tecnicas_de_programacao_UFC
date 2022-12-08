@@ -11,7 +11,7 @@ public class ShowButton
 	public JButton getButton()
 	{
 		Button button = new Button();
-		return button.newButton("ShowButton", Color.yellow);
+		return button.newButton("Show SweepStakes", Color.yellow);
 	}
 	public void actionPerformed(ActionEvent e) 
 	{

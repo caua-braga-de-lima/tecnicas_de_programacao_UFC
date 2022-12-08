@@ -1,7 +1,7 @@
 package client;
 
-import business.SweepStake;
-import data.AlunoDAO;
+import business.Player;
+import data.SweepStakeDAO;
 
 public class Main 
 {

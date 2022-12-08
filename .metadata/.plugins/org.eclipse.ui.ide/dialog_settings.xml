@@ -7,13 +7,14 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
-			<item value="C:\Users\cauab\Desktop\coding scripts\scripts java\Trabalho02"/>
 			<item value=""/>
+			<item value="C:\Users\cauab\Desktop\coding scripts\scripts java\Trabalho02"/>
 			<item value="C:\Users\cauab\Desktop\coding scripts\scripts java\Prova01 (Parte B)"/>
 			<item value="C:\Users\cauab\Desktop\coding scripts\scripts java\Aula06"/>
 			<item value="C:\Users\cauab\Desktop\coding scripts\scripts java"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\Users\cauab\Desktop\coding scripts\scripts java\BancoDeDados.zip"/>
 			<item value="C:\Users\cauab\Desktop\coding scripts\scripts java\Trabalho02recover.zip"/>
 			<item value="C:\Users\cauab\Desktop\coding scripts\scripts java\BancoDeDados_aula22_11_22.zip"/>
 			<item value="C:\Users\cauab\Desktop\coding scripts\scripts java\Calculadora.zip"/>

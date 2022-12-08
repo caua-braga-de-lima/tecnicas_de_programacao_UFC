@@ -13,14 +13,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import business.QuarterFinals;
+import business.Player;
+import business.SoccerTeam;
 
 public class SemiFinalsWindow extends JFrame implements ActionListener
 {
 	private JPanel scorePanel;
 	private FinalsWindow fWindow;
 	private TextField auxField;
-	private QuarterFinals quarterFinals;
+	private Player player;
+	private ArrayList<SoccerTeam> qfWinners;
+	private ArrayList<SoccerTeam> sfWinners;
 	private ArrayList<TextField> textFields;
 	
 	public SemiFinalsWindow(FinalsWindow fWindow)
@@ -33,12 +36,18 @@ public class SemiFinalsWindow extends JFrame implements ActionListener
 		this.getContentPane().setBackground(Color.black);
 		this.setLayout(new BorderLayout());
 		this.add(setLabel(), BorderLayout.NORTH);
+		this.qfWinners = new ArrayList<SoccerTeam>();
 		getPanelInfo();
 		this.add(scorePanel);	
 		Button button = new Button();
 		JButton doneButton = button.newButton("DONE", Color.black);
 		doneButton.addActionListener(this);
 		this.add(doneButton, BorderLayout.SOUTH);
+	}
+	
+	public void setPlayer(Player player) 
+	{
+		this.player = player;
 	}
 
 	public void getPanelInfo() 
@@ -62,6 +71,19 @@ public class SemiFinalsWindow extends JFrame implements ActionListener
 			if(i % 2 != 0)
 			{
 				scorePanel.add(xSymbol());
+			}
+		}
+	}
+	
+	public void autoFill()
+	{
+		int aux = -1;
+		for(int i = 0; i < this.textFields.size(); i++)
+		{
+			if(i % 2 == 0)
+			{
+				aux++;
+				this.textFields.get(i).setText(this.qfWinners.get(aux).getName());
 			}
 		}
 	}
@@ -90,6 +112,49 @@ public class SemiFinalsWindow extends JFrame implements ActionListener
 	{
 		return new JLabel("X");
 	}
+	
+	public void setQfWinners(ArrayList<SoccerTeam> qfWinners) 
+	{
+		this.qfWinners = qfWinners;
+	}
+	
+	public void setTeamsScore() 
+	{
+		int aux = -1;
+		for(int i = 0; i < this.textFields.size(); i++)
+		{
+			if(i % 2 != 0)
+			{
+				aux++;
+				this.qfWinners.get(aux).setScore(Integer.parseInt(textFields.get(i).getText()));
+			}
+		}	
+	}
+	
+	public ArrayList<SoccerTeam> getWinners()
+	{
+		this.sfWinners = new ArrayList<SoccerTeam>();
+		SoccerTeam auxGame[] = new SoccerTeam[2];
+		
+		for(int i = 0, j = 1; i < this.qfWinners.size() && j < this.qfWinners.size(); i += 2, j += 2)
+		{
+			auxGame[0] = this.qfWinners.get(i);
+			auxGame[1] = this.qfWinners.get(j);
+			
+			if(auxGame[0].getScore() > auxGame[1].getScore())
+			{
+				sfWinners.add(auxGame[0]);
+			}
+			else
+			{
+				sfWinners.add(auxGame[1]);
+			}
+		}
+		
+		this.player.setSemiTeams(qfWinners);
+		return sfWinners;
+	}
+	
 
 	public void actionPerformed(ActionEvent e) 
 	{
@@ -105,6 +170,11 @@ public class SemiFinalsWindow extends JFrame implements ActionListener
 		
 		if(check == true)
 		{
+			setTeamsScore();
+			getWinners();
+			this.fWindow.setPlayer(this.player);
+			this.fWindow.setSfWinners(this.getWinners());
+			this.fWindow.autoFill();
 			this.setVisible(false);
 			this.fWindow.setVisible(true);
 		}

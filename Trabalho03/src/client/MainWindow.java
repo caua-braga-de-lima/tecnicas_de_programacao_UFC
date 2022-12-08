@@ -1,5 +1,8 @@
+//CLASSE JANELA PRINCIPAL - REFERENTE A JANELA DE MENU E O ENGLOBAMENTO DE TODAS AS OUTRAS JANELAS
+
 package client;
 import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -9,13 +12,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import business.QuarterFinals;
-
 public class MainWindow extends JFrame
 {
+	//ATRIBUTOS - PAINEIS DA JANELA:
 	private JPanel titlePanel;
 	private MenuPanel menuPanel;
 	
+	//METODO CONSTRUTOR - CONFIGURA AS PROPRIEDADES GRAFICAS DA JANELA:
 	public MainWindow()
 	{
 		this.setSize(600, 200);
@@ -29,17 +32,16 @@ public class MainWindow extends JFrame
 		this.setVisible(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);	
 	}
-
+	
+	//METODO - REALIZA O ENCAPSULAMENTO DAS JANELAS DO PROGRAMA:
 	public void getPanels() 
 	{
-		QuarterFinalsWindow qfWindow = new QuarterFinalsWindow(new SemiFinalsWindow(new FinalsWindow()));
 		
 		this.menuPanel = new MenuPanel();
-		this.add(this.menuPanel.getPanel(this, new SignUpWindow(qfWindow)), BorderLayout.CENTER);
-		
+		this.add(this.menuPanel.getPanel(this, new SignUpWindow(new QuarterFinalsWindow(new SemiFinalsWindow(new FinalsWindow())))), BorderLayout.CENTER);
 	}
 	
-
+	//METODO - CONFIGURA OS TEXTOS DA JANELA:
 	public void getPanelInfo() 
 	{
 		this.titlePanel.setVisible(true);

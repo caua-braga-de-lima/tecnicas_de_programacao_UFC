@@ -15,18 +15,18 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import business.QuarterFinals;
+import business.Player;
 import business.SoccerTeam;
-import business.SweepStake;
 
 public class QuarterFinalsWindow extends JFrame implements ActionListener
 {
 	private JPanel scorePanel;
-	private SweepStake sweepStake;
+	private Player player;
 	private SemiFinalsWindow sfWindow;
 	private TextField auxField;
 	private ArrayList<TextField> textFields;
 	private ArrayList<SoccerTeam> quarterTeams;
+	private ArrayList<SoccerTeam> qfWinners;
 	
 	public QuarterFinalsWindow(SemiFinalsWindow sfWindow)
 	{
@@ -37,6 +37,7 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 		this.setVisible(false);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.getContentPane().setBackground(Color.BLACK);
+		this.quarterTeams = new ArrayList<SoccerTeam>();
 		JLabel label = setLabel();
 		this.add(label, BorderLayout.NORTH);
 		getScorePanel();
@@ -47,9 +48,9 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 		this.add(doneButton, BorderLayout.SOUTH);
 	}
 	
-	public QuarterFinalsWindow()
+	public void setSweepStake(Player player) 
 	{
-		
+		this.player = player;
 	}
 	
 	public ArrayList<SoccerTeam> getQuarterTeams() 
@@ -123,41 +124,6 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 		return true;
 	}
 	
-	public void actionPerformed(ActionEvent e) 
-	{
-		Boolean check = true;
-		this.quarterTeams = new ArrayList<SoccerTeam>();
-		
-		//VERIFICA SE NENHUM CAMPO ESTA VAZIO:
-		for(TextField field : this.textFields)
-		{
-			if(field.getText().equals(""))
-			{
-				check = false;
-			}
-		}
-		
-		if(check == true)
-		{
-			setTeamsName();
-			setTeamsScore();
-			setTeamsFlag();	
-			
-			for(SoccerTeam sc : this.quarterTeams)
-			{
-				System.out.println(sc.getName() + " " + sc.getScore());
-	
-			}
-			
-			QuarterFinals qf = new QuarterFinals(this.quarterTeams);
-			qf.getWinners();
-			
-			this.setVisible(false);
-			this.sfWindow.setVisible(true);
-		}
-	}
-
-
 	public void setTeamsFlag() 
 	{
 		for(TextField field : this.textFields)
@@ -168,11 +134,11 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 				{
 					if(field.getText().equals("BRA"))
 					{
-						team.setFlag(new ImageIcon(new ImageIcon("img/brasil.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+						team.setFlag(new ImageIcon(new ImageIcon("img/brasil.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
 					}
 					else if(field.getText().equals("ARG"))
 					{
-						team.setFlag(new ImageIcon(new ImageIcon("img/argentina.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+						team.setFlag(new ImageIcon(new ImageIcon("img/argentina.jpeg").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
 					}
 					else if(field.getText().equals("CRO"))
 					{
@@ -184,7 +150,7 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 					}
 					else if(field.getText().equals("FRA"))
 					{
-						team.setFlag(new ImageIcon(new ImageIcon("img/franca.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+						team.setFlag(new ImageIcon(new ImageIcon("img/franca.jpeg").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
 					}
 					else if(field.getText().equals("HOL"))
 					{
@@ -192,7 +158,7 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 					}
 					else if(field.getText().equals("ENG"))
 					{
-						team.setFlag(new ImageIcon(new ImageIcon("img/inglaterra.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+						team.setFlag(new ImageIcon(new ImageIcon("img/inglaterra.jpeg").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
 					}
 					else if(field.getText().equals("POR"))
 					{
@@ -202,6 +168,35 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 				}
 			}
 		}
+	}
+	
+	public ArrayList<SoccerTeam> getWinners()
+	{
+		this.qfWinners = new ArrayList<SoccerTeam>();
+		SoccerTeam auxGame[] = new SoccerTeam[2];
+		
+		for(int i = 0, j = 1; i < this.quarterTeams.size() && j < this.quarterTeams.size(); i += 2, j += 2)
+		{
+			auxGame[0] = this.quarterTeams.get(i);
+			auxGame[1] = this.quarterTeams.get(j);
+			
+			if(auxGame[0].getScore() > auxGame[1].getScore())
+			{
+				qfWinners.add(auxGame[0]);
+			}
+			else
+			{
+				qfWinners.add(auxGame[1]);
+			}
+		}
+		
+		for(SoccerTeam winner : qfWinners)
+		{
+			System.out.println(winner.getName());
+		}
+		
+
+		return qfWinners;
 	}
 
 	public void setTeamsScore() 
@@ -226,7 +221,38 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 				this.quarterTeams.add(new SoccerTeam(field.getText(), null, 0));
 			}
 		}
+		this.player.setQuarterTeams(quarterTeams);
 	}
+	
+	public void actionPerformed(ActionEvent e) 
+	{
+		Boolean check = true;
+		this.quarterTeams = new ArrayList<SoccerTeam>();
+		
+		//VERIFICA SE NENHUM CAMPO ESTA VAZIO:
+		for(TextField field : this.textFields)
+		{
+			if(field.getText().equals(""))
+			{
+				check = false;
+			}
+		}
+		
+		if(check == true)
+		{
+			setTeamsName();
+			setTeamsScore();
+			setTeamsFlag();	
+			this.sfWindow.setPlayer(this.player);
+			this.sfWindow.setQfWinners(getWinners());
+			this.sfWindow.autoFill();
+			this.setVisible(false);
+			this.sfWindow.setVisible(true);	
+		}
+	}
+
+
+	
 	
 	
 }

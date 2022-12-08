@@ -1,5 +1,6 @@
-package client;
+//CLASSE JANELA
 
+package client;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -9,12 +10,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import business.Player;
 
-import business.SweepStake;
 
 public class SignUpWindow extends JFrame implements ActionListener
 {
-	private SweepStake sweepStake;
+	private Player player;
 	private TextField textField;
 	private QuarterFinalsWindow qfWindow;
 	
@@ -43,16 +44,15 @@ public class SignUpWindow extends JFrame implements ActionListener
 		this.add(label);
 		this.textField = new TextField(5);
 		this.add(textField);
-		this.sweepStake = new SweepStake();
-		sweepStake.setName(textField.getText());
 	}
 
 	public void actionPerformed(ActionEvent e) 
 	{
 		if(!this.textField.getText().equals(""))
 		{
-			this.sweepStake = new SweepStake();
-			sweepStake.setName(textField.getText());
+			this.player = new Player();
+			player.setName(textField.getText());
+			this.qfWindow.setSweepStake(this.player);
 			this.setVisible(false);
 			qfWindow.setVisible(true);
 		}
