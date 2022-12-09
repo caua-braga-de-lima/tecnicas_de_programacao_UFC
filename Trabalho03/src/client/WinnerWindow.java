@@ -1,5 +1,6 @@
-package client;
+//CLASSE JANELA DO VENCEDOR - REFERENTE A ULTIMA JANELA EXIBIDA NA GUIA DE CADASTRO DE BOLAO:
 
+package client;
 import java.awt.BorderLayout;
 
 import javax.swing.ImageIcon;
@@ -10,6 +11,7 @@ import business.SoccerTeam;
 
 public class WinnerWindow extends JFrame
 {
+	//METODO CONSTRUTOR:
 	public WinnerWindow(SoccerTeam winner)
 	{
 		this.setSize(800, 600);

@@ -1,4 +1,4 @@
-//CLASSE JANELA
+//CLASSE JANELA DE CADASTRO - RESPONSAVEL PELO CADASTRO DO NOME DO USUARIO DO BOLAO:
 
 package client;
 import java.awt.Color;
@@ -12,13 +12,14 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import business.Player;
 
-
 public class SignUpWindow extends JFrame implements ActionListener
 {
+	//ATRIBUTOS:
 	private Player player;
 	private TextField textField;
 	private QuarterFinalsWindow qfWindow;
 	
+	//METODO CONSTRUTOR - RECEBE A JANELA DAS QUARTAS DE FINAL PARA TER CONTROLE SOBRE ELA:
 	public SignUpWindow(QuarterFinalsWindow qfWindow)
 	{
 		this.qfWindow = qfWindow;
@@ -36,6 +37,7 @@ public class SignUpWindow extends JFrame implements ActionListener
 		this.add(sendButton);
 	}
 
+	//CONFIGURA O TEXTO DA JANELA:
 	public void getWindowInfo() 
 	{
 		JLabel label = new JLabel("ENTER YOUR NAME: ");
@@ -46,6 +48,7 @@ public class SignUpWindow extends JFrame implements ActionListener
 		this.add(textField);
 	}
 
+	//METODO DE EVENTO - GUARDA O NOME DO JOGADOR NO BOLAO E INICIA A PROXIMA JANELA:
 	public void actionPerformed(ActionEvent e) 
 	{
 		if(!this.textField.getText().equals(""))

@@ -1,5 +1,6 @@
-package client;
+//CLASSE FINAIS - REFERENTE A JANELA DAS FINAIS:
 
+package client;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -21,13 +22,16 @@ import data.SweepStakeDAO;
 
 public class FinalsWindow extends JFrame implements ActionListener
 {
+	//ATRIBUTOS:
 	private JPanel scorePanel;
 	private TextField auxField;
 	private Player player;
 	private ArrayList<TextField> textFields;
 	private ArrayList<SoccerTeam> sfWinners;
 	private SoccerTeam winner;
+	private SweepStakeDAO dataSync;
 
+	//METODO CONSTRUTOR:
 	public FinalsWindow()
 	{
 		this.setSize(800, 600);
@@ -43,7 +47,17 @@ public class FinalsWindow extends JFrame implements ActionListener
 		JButton doneButton = button.newButton("DONE", null);
 		doneButton.addActionListener(this);
 		this.add(doneButton, BorderLayout.SOUTH);
-		
+	}
+	
+	//RECEBE E RETORNA O BOLAO DE ACESSO PARA O BANCO:
+	public SweepStakeDAO getDataSync() 
+	{
+		return dataSync;
+	}
+	
+	public void setDataSync(SweepStakeDAO dataSync) 
+	{
+		this.dataSync = dataSync;
 	}
 	
 	public void setPlayer(Player player) 
@@ -51,6 +65,7 @@ public class FinalsWindow extends JFrame implements ActionListener
 		this.player = player;
 	}
 	
+	//CONFIGURA AS INFORMACOES DO PAINEL:
 	public void getPanelInfo() 
 	{
 		this.scorePanel = new JPanel();
@@ -76,6 +91,7 @@ public class FinalsWindow extends JFrame implements ActionListener
 		}
 	}
 	
+	//CONFIGURAO TEXTO DA JANELA:
 	public JLabel setLabel() 
 	{
 		JLabel label = new JLabel();
@@ -86,12 +102,14 @@ public class FinalsWindow extends JFrame implements ActionListener
 		return label;
 	}
 	
+	//CONFIGURA OS VENCEDORES:
 	public void setSfWinners(ArrayList<SoccerTeam> sfWinners) 
 	{
 		this.sfWinners = sfWinners;
 		this.player.setFinalTeams(sfWinners);
 	}
 	
+	//METODOS AUXILIARES:
 	public JLabel teamLabel()
 	{
 		return new JLabel("TEAM: ");
@@ -107,6 +125,7 @@ public class FinalsWindow extends JFrame implements ActionListener
 		return new JLabel("X");
 	}
 	
+	//REALIZA O AUTOPREENCHIMENTO DOS CAMPOS DE TEXTO:
 	public void autoFill()
 	{
 		int aux = -1;
@@ -120,6 +139,7 @@ public class FinalsWindow extends JFrame implements ActionListener
 		}
 	}
 	
+	//ASSOCIA O INPUT DO USUARIO A PONTUACAO DAS SELECOES:
 	public void setTeamsScore() 
 	{
 		int aux = -1;
@@ -133,6 +153,7 @@ public class FinalsWindow extends JFrame implements ActionListener
 		}	
 	}
 	
+	//RETORNA O VENCEDOR:
 	public SoccerTeam getWinner()
 	{
 		if(this.sfWinners.get(0).getScore() > this.sfWinners.get(1).getScore())
@@ -149,7 +170,7 @@ public class FinalsWindow extends JFrame implements ActionListener
 		return this.winner;
 	}
 
-	@Override
+	//METODO DE EVENTO - INICIA A JANELA FINAL E IMPORTA OS DADOS PARA O BANCO:
 	public void actionPerformed(ActionEvent e) 
 	{
 		Boolean check = true;
@@ -167,23 +188,7 @@ public class FinalsWindow extends JFrame implements ActionListener
 			setTeamsScore();
 			getWinner();
 			System.out.println(this.player.getName());
-			
-			for(SoccerTeam team : this.player.getQuarterTeams())
-			{
-				System.out.println(team.getName() + team.getScore());
-			}
-			for(SoccerTeam team : this.player.getSemiTeams())
-			{
-				System.out.println(team.getName() + team.getScore());
-			}
-			for(SoccerTeam team : this.player.getFinalTeams())
-			{
-				System.out.println(team.getName() + team.getScore());
-			}
-			System.out.println(this.player.getWinner().getName());
-			
-			SweepStakeDAO sweepStake = new SweepStakeDAO(new SweepStakes());
-			sweepStake.insertSweepStake(this.player);
+			this.dataSync.insertSweepStake(this.player);
 			this.setVisible(false);
 			WinnerWindow window = new WinnerWindow(getWinner());
 

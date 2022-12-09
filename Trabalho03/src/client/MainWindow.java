@@ -12,6 +12,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import business.SweepStakes;
+import data.SweepStakeDAO;
+
 public class MainWindow extends JFrame
 {
 	//ATRIBUTOS - PAINEIS DA JANELA:
@@ -36,9 +39,9 @@ public class MainWindow extends JFrame
 	//METODO - REALIZA O ENCAPSULAMENTO DAS JANELAS DO PROGRAMA:
 	public void getPanels() 
 	{
-		
+		SweepStakes ssList = new SweepStakes();
 		this.menuPanel = new MenuPanel();
-		this.add(this.menuPanel.getPanel(this, new SignUpWindow(new QuarterFinalsWindow(new SemiFinalsWindow(new FinalsWindow())))), BorderLayout.CENTER);
+		this.add(this.menuPanel.getPanel(this, new SignUpWindow(new QuarterFinalsWindow(new SemiFinalsWindow(new FinalsWindow()))), new ShowWindow()), BorderLayout.CENTER);
 	}
 	
 	//METODO - CONFIGURA OS TEXTOS DA JANELA:

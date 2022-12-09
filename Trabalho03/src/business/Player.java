@@ -1,9 +1,11 @@
-package business;
+//CLASSE DO PARTICIPANTE - REFERENTE AS INFORMACOES DO USUARIO QUE FAZ O BOLAO:
 
+package business;
 import java.util.ArrayList;
 
 public class Player 
 {
+	//ATRIBUTOS:
 	private int id;
 	private String name;
 	private ArrayList<SoccerTeam> quarterTeams;
@@ -11,6 +13,7 @@ public class Player
 	private ArrayList<SoccerTeam> finalTeams;
 	private SoccerTeam winner;
 	
+	//GETTERS E SETTERS:
 	public int getId() 
 	{
 		return id;

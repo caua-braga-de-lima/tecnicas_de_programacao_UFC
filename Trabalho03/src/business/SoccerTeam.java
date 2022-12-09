@@ -1,12 +1,16 @@
+//CLASSE SELECAO - REFERENTE A CADA SELECAO DE FUTEBOL INSTANCIADA:
+
 package business;
 import javax.swing.ImageIcon;
 
 public class SoccerTeam 
 {
+	//ATRIBUTOS - NOME, PONTUACAO E BANDEIRA:
 	private String name;
 	private ImageIcon flag;
 	private int score;
 	
+	//METODO CONSTRUTOR:
 	public SoccerTeam(String name, ImageIcon flag, int score)
 	{
 		this.name = name;
@@ -14,11 +18,13 @@ public class SoccerTeam
 		this.score = score;
 	}
 	
+	//METODO CONSTRUTOR AUXILIAR:
 	public SoccerTeam()
 	{
 		
 	}
 
+	//GETTERS E SETTERS:
 	public String getName() 
 	{
 		return name;

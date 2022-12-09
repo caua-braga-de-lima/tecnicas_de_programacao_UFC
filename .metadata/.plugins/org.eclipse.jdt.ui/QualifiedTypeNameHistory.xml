@@ -24,8 +24,6 @@
     <fullyQualifiedTypeName name="javax.swing.JTextField"/>
     <fullyQualifiedTypeName name="javax.swing.JComboBox"/>
     <fullyQualifiedTypeName name="java.awt.GridLayout"/>
-    <fullyQualifiedTypeName name="javax.swing.JPanel"/>
-    <fullyQualifiedTypeName name="java.awt.FlowLayout"/>
     <fullyQualifiedTypeName name="javax.swing.JButton"/>
     <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
@@ -34,15 +32,17 @@
     <fullyQualifiedTypeName name="business.ScoreCalculator"/>
     <fullyQualifiedTypeName name="business.QuarterFinals"/>
     <fullyQualifiedTypeName name="client.QuarterFinalsWindow"/>
-    <fullyQualifiedTypeName name="javax.swing.JLabel"/>
-    <fullyQualifiedTypeName name="business.Player"/>
-    <fullyQualifiedTypeName name="business.SoccerTeam"/>
     <fullyQualifiedTypeName name="javax.swing.JFrame"/>
     <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
     <fullyQualifiedTypeName name="javax.swing.JTable"/>
-    <fullyQualifiedTypeName name="data.SweepStakeDAO"/>
     <fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="javax.swing.JPanel"/>
+    <fullyQualifiedTypeName name="java.awt.FlowLayout"/>
     <fullyQualifiedTypeName name="client.ShowWindow"/>
+    <fullyQualifiedTypeName name="javax.swing.JLabel"/>
+    <fullyQualifiedTypeName name="business.SoccerTeam"/>
+    <fullyQualifiedTypeName name="data.SweepStakeDAO"/>
     <fullyQualifiedTypeName name="business.SweepStakes"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="business.Player"/>
 </qualifiedTypeNameHistroy>

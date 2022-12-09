@@ -1,5 +1,6 @@
-package data;
+//CLASSE CONECTOR - CONFIGURA A CONEXAO COM O BANCO DE DADOS:
 
+package data;
 import java.sql.*;
 
 public class Connector 

@@ -1,5 +1,6 @@
-package data;
+//CLASSE DAO - IMPORTA OS DADOS DO BOLAO PARA O BANCO DE DADOS E VICE-VERSA:
 
+package data;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,19 +16,15 @@ import business.SweepStakes;
 /*DAO Data Access Object*/
 public class SweepStakeDAO 
 {
+	//ATRIBUTO - RECEBE UMA LISTA DE BOLOES:
 	private SweepStakes sweepStakes;
-	// MYSQL
-	//
-	// C cadastrar o dado
-	// R pegar o dado
-	// U atualizar o dado
-	// D apagar o dado
 	
-	public SweepStakeDAO(SweepStakes sweepStakes)
+	public void setSweepStakes(SweepStakes sweepStakes) 
 	{
 		this.sweepStakes = sweepStakes;
 	}
 	
+	//METODO - INSERE UM BOLAO NO BANCO DE DADOS:
 	public void insertSweepStake(Player p) 
 	{
 		try {
@@ -78,16 +75,15 @@ public class SweepStakeDAO
 		}
 	}
 	
-	
-	public ArrayList<Player> listar() 
+	//METODO - IMPORTA OS BOLOES CADASTRADOS NO BANCO DE DADOS:
+	public ArrayList<Player> listSweepStakes() 
 	{
 		ArrayList<Player> sweepStakesList = new ArrayList<Player>();
 		
 		try {
 			Connection conexao = new Connector().getConnection();
 
-			ResultSet resultado = 
-					conexao.prepareStatement("select * from bolao").executeQuery();
+			ResultSet resultado = conexao.prepareStatement("select * from bolao").executeQuery();
 			
 			Player p;
 			
@@ -105,7 +101,9 @@ public class SweepStakeDAO
 				p.setWinner(new SoccerTeam(resultado.getString("vencedor"), null, 0));
 				sweepStakesList.add(p);
 			}
+			
 			this.sweepStakes.setSweepStakesList(sweepStakesList);
+			System.out.println(sweepStakesList.size());
 			conexao.close();
 		}
 		catch (Exception e) 
@@ -116,7 +114,7 @@ public class SweepStakeDAO
 		return sweepStakesList;
 	}
 
-
+	//METODO AUXILIARES:
 	public ArrayList<SoccerTeam> setFinalTeams(ResultSet resultado) throws SQLException {
 		ArrayList<SoccerTeam> finalTeams = new ArrayList<SoccerTeam>();
 		finalTeams.add(new SoccerTeam(resultado.getString("fin_sel1"), null, resultado.getInt("fin_sel1_placar")));

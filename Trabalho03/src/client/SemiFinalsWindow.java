@@ -1,5 +1,6 @@
-package client;
+//CLASSE SEMIFINAIS - REFERENTE A JANELA DAS SEMIFINAIS:
 
+package client;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -18,6 +19,7 @@ import business.SoccerTeam;
 
 public class SemiFinalsWindow extends JFrame implements ActionListener
 {
+	//ATRIBUTOS:
 	private JPanel scorePanel;
 	private FinalsWindow fWindow;
 	private TextField auxField;
@@ -26,6 +28,7 @@ public class SemiFinalsWindow extends JFrame implements ActionListener
 	private ArrayList<SoccerTeam> sfWinners;
 	private ArrayList<TextField> textFields;
 	
+	//METODO CONSTRUTOR - RECEBE A JANELA DAS FINAIS PARA TER CONTROLE SOBRE ELA:
 	public SemiFinalsWindow(FinalsWindow fWindow)
 	{
 		this.fWindow = fWindow;
@@ -45,11 +48,13 @@ public class SemiFinalsWindow extends JFrame implements ActionListener
 		this.add(doneButton, BorderLayout.SOUTH);
 	}
 	
+	//METODO - RECEBE UM BOLAO:
 	public void setPlayer(Player player) 
 	{
 		this.player = player;
 	}
 
+	//CONFIGURA AS INFORMACOES DO PAINEL DE PONTUACAO:
 	public void getPanelInfo() 
 	{
 		this.scorePanel = new JPanel();
@@ -75,6 +80,7 @@ public class SemiFinalsWindow extends JFrame implements ActionListener
 		}
 	}
 	
+	//REALIZA O AUTOPREENCHIMENTO DOS CAMPOS DE TEXTOS COM AS SELECOES VENCEDORAS NA ETAPA ANTERIOR:
 	public void autoFill()
 	{
 		int aux = -1;
@@ -88,6 +94,7 @@ public class SemiFinalsWindow extends JFrame implements ActionListener
 		}
 	}
 	
+	//CONFIGURA O TEXTO DA JANELA:
 	public JLabel setLabel() 
 	{
 		JLabel label = new JLabel();
@@ -98,6 +105,7 @@ public class SemiFinalsWindow extends JFrame implements ActionListener
 		return label;
 	}
 	
+	//METODOS AUXILIARES:
 	public JLabel teamLabel()
 	{
 		return new JLabel("TEAM: ");
@@ -118,6 +126,7 @@ public class SemiFinalsWindow extends JFrame implements ActionListener
 		this.qfWinners = qfWinners;
 	}
 	
+	//RECEBE O INPUT DE PONTUACAO DO USUARIO:
 	public void setTeamsScore() 
 	{
 		int aux = -1;
@@ -131,6 +140,7 @@ public class SemiFinalsWindow extends JFrame implements ActionListener
 		}	
 	}
 	
+	//COMPARA OS SCORES E RETORNA OS VENCEDORES:
 	public ArrayList<SoccerTeam> getWinners()
 	{
 		this.sfWinners = new ArrayList<SoccerTeam>();
@@ -155,7 +165,7 @@ public class SemiFinalsWindow extends JFrame implements ActionListener
 		return sfWinners;
 	}
 	
-
+	//METODO DE EVENTO - VERIFICA SE TODOS OS CAMPOS ESTAO VAZIOS E INICIA A PROXIMA JANELA:
 	public void actionPerformed(ActionEvent e) 
 	{
 		Boolean check = true;

@@ -1,5 +1,6 @@
-package client;
+//CLASSE MAIN
 
+package client;
 import business.Player;
 import data.SweepStakeDAO;
 
@@ -9,8 +10,6 @@ public class Main
 	{
 		MainWindow window = new MainWindow();
 	}
-	
-	
 }
 	
  

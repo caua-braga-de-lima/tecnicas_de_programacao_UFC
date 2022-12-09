@@ -1,5 +1,6 @@
-package client;
+//CLASSE QUARTAS DE FINAL - REFERENTE À JANELA DAS QUARTAS DE FINAL:
 
+package client;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
@@ -20,6 +21,7 @@ import business.SoccerTeam;
 
 public class QuarterFinalsWindow extends JFrame implements ActionListener
 {
+	//ATRIBUTOS:
 	private JPanel scorePanel;
 	private Player player;
 	private SemiFinalsWindow sfWindow;
@@ -28,6 +30,7 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 	private ArrayList<SoccerTeam> quarterTeams;
 	private ArrayList<SoccerTeam> qfWinners;
 	
+	//METODO CONSTRUTOR - RECEBE A JANELA DAS SEMIFINAIS PARA TER CONTROLE SOBRE ELA:
 	public QuarterFinalsWindow(SemiFinalsWindow sfWindow)
 	{
 		this.sfWindow = sfWindow;
@@ -48,16 +51,19 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 		this.add(doneButton, BorderLayout.SOUTH);
 	}
 	
+	//METODO - RECEBE UM BOLAO:
 	public void setSweepStake(Player player) 
 	{
 		this.player = player;
 	}
 	
+	//METODO - RETORNA AS SELEÇOES DAS QUARTAS:
 	public ArrayList<SoccerTeam> getQuarterTeams() 
 	{
 		return quarterTeams;
 	}
-
+	
+	//CONFIGURA O PAINEL DE TEXTO:
 	public JLabel setLabel() 
 	{
 		JLabel label = new JLabel();
@@ -67,7 +73,8 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 		label.setFont(new Font("Google Sans", Font.BOLD, 30));
 		return label;
 	}
-
+	
+	//METODOS AUXILIARES:
 	public JLabel teamLabel()
 	{
 		return new JLabel("TEAM: ");
@@ -83,6 +90,7 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 		return new JLabel("X");
 	}
 	
+	//METODO - CONFIGURA OS PAINEL DO PLACAR
 	public void getScorePanel() 
 	{
 		this.scorePanel = new JPanel();
@@ -107,6 +115,7 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 		}	
 	}
 	
+	//METODO - VERIFICA SE O INPUT EH UM NUMERO:
 	public static Boolean isNumeric(String string)
 	{
 		if(string.equals(null))
@@ -124,6 +133,7 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 		return true;
 	}
 	
+	//CONFIGURA AS BANDEIRAS DAS SELECOES:
 	public void setTeamsFlag() 
 	{
 		for(TextField field : this.textFields)
@@ -144,9 +154,9 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 					{
 						team.setFlag(new ImageIcon(new ImageIcon("img/croacia.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
 					}
-					else if(field.getText().equals("ESP"))
+					else if(field.getText().equals("MAR"))
 					{
-						team.setFlag(new ImageIcon(new ImageIcon("img/espanha.png").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+						team.setFlag(new ImageIcon(new ImageIcon("img/marrocos.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
 					}
 					else if(field.getText().equals("FRA"))
 					{
@@ -170,6 +180,7 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 		}
 	}
 	
+	//RETORNA OS VENCEDORES DE ACORDO COM A PONTUACAO INDICADA PELO USUARIO:
 	public ArrayList<SoccerTeam> getWinners()
 	{
 		this.qfWinners = new ArrayList<SoccerTeam>();
@@ -199,6 +210,7 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 		return qfWinners;
 	}
 
+	//RECEBE O INPUT DA PONTUACAO DE CADA SELECAO:
 	public void setTeamsScore() 
 	{
 		int aux = -1;
@@ -212,6 +224,7 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 		}
 	}
 
+	//ASSOCIA O INPUT DO USUARIO A UMA SELECAO:
 	public void setTeamsName() 
 	{
 		for(TextField field : this.textFields)
@@ -224,6 +237,7 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 		this.player.setQuarterTeams(quarterTeams);
 	}
 	
+	//METODO DE EVENTO - COMPUTA OS RESULTADOS E INICIA A PROXIMA JANELA:
 	public void actionPerformed(ActionEvent e) 
 	{
 		Boolean check = true;
