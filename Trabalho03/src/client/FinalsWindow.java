@@ -187,10 +187,14 @@ public class FinalsWindow extends JFrame implements ActionListener
 		{
 			setTeamsScore();
 			getWinner();
-			System.out.println(this.player.getName());
-			this.dataSync.insertSweepStake(this.player);
+			
+			SweepStakeDAO sweepStake = new SweepStakeDAO();
+			sweepStake.insertSweepStake(this.player);
 			this.setVisible(false);
 			WinnerWindow window = new WinnerWindow(getWinner());
+//			this.dataSync.insertSweepStake(this.player);
+//			this.setVisible(false);
+//			WinnerWindow window = new WinnerWindow(getWinner());
 
 		}
 		

@@ -29,6 +29,5 @@ public class NewButton implements ActionListener
 	{
 		mainWindow.setVisible(false);
 		this.sWindow.setVisible(true);
-		
 	}
 }

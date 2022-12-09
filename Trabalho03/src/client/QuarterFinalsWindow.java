@@ -200,13 +200,6 @@ public class QuarterFinalsWindow extends JFrame implements ActionListener
 				qfWinners.add(auxGame[1]);
 			}
 		}
-		
-		for(SoccerTeam winner : qfWinners)
-		{
-			System.out.println(winner.getName());
-		}
-		
-
 		return qfWinners;
 	}
 

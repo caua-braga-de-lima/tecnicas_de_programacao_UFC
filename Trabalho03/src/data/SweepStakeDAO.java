@@ -103,8 +103,6 @@ public class SweepStakeDAO
 			}
 			
 			this.sweepStakes.setSweepStakesList(sweepStakesList);
-			System.out.println(sweepStakesList.size());
-			conexao.close();
 		}
 		catch (Exception e) 
 		{

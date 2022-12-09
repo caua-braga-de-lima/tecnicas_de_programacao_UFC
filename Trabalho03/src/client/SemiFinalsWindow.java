@@ -64,7 +64,6 @@ public class SemiFinalsWindow extends JFrame implements ActionListener
 		for(int i = 1; i <= 4; i++)
 		{
 			scorePanel.add(teamLabel());
-			//para syncar com o bolao, receba um como parametro
 			auxField = new TextField(3);
 			this.textFields.add(auxField);
 			scorePanel.add(auxField);

@@ -33,11 +33,18 @@ public class ShowWindow extends JFrame
 	{
 		panel.setLayout(new FlowLayout());
 		
-		for(Player player : this.sweepStakes.getSweepStakesList())
+		try
 		{
-			panel.add(new JLabel("NOME: " + player.getName() + " ID: " + player.getId()));
-			getTeamsInfo(panel, player);
+			for(Player player : this.sweepStakes.getSweepStakesList())
+			{
+				panel.add(new JLabel("NOME: " + player.getName() + " ID: " + player.getId()));
+				getTeamsInfo(panel, player);
+			}
+		}catch(Exception e)
+		{
+			
 		}
+		
 	}
 
 	public void getTeamsInfo(JPanel panel, Player player) 
